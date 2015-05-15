@@ -26,7 +26,8 @@ public class EquipoDAO implements CRUD<EquipoDTO> {
     private static final String SQL_DELETE="delete from PERSONA where cedula=?";
     private static final String SQL_UPDATE="update PERSONA set correo=?,nombre=?  where cedula=?";
     private static final String SQL_READ="select * from PERSONA where cedula=?";
-    private static final String SQL_READALL="select * from PERSONA";   
+    private static final String SQL_READALL="select * from sala";   
+    private static final String SQL_READ_ID="select * from equipo where id_equipo=?";
        
    private static final Conexion con= Conexion.entregarConexion();
     
@@ -81,12 +82,12 @@ public class EquipoDAO implements CRUD<EquipoDTO> {
     public EquipoDTO read(EquipoDTO equipoDTO) {
          EquipoDTO l=null;
         try {
-            ps=con.getCnn().prepareStatement(SQL_READ);
+            ps=con.getCnn().prepareStatement(SQL_READ_ID);
             ResultSet rs;
-            ps.setInt(1,equipoDTO.getId_sala());
+            ps.setString(1,equipoDTO.getId_equipo());
             rs=ps.executeQuery();
             while(rs.next()){
-                l=new EquipoDTO(new Equipo("",0,"","",""));
+                l=new EquipoDTO(new Equipo(rs.getString("id_equipo"),rs.getInt("id_sala"),rs.getString("modelo"),rs.getString("fk_marca_id_marca"),rs.getString("fk_tipo_equipo_id_tipo_equipo")));
             }
             
         } catch (SQLException ex) {
@@ -107,7 +108,7 @@ public class EquipoDAO implements CRUD<EquipoDTO> {
                   
             rs=ps.executeQuery();
             while(rs.next())
-                 personas.add(new EquipoDTO(new Equipo("",0,"","","")));
+                 personas.add(new EquipoDTO(new Equipo(rs.getString("id_equipo"),rs.getInt("id_sala"),rs.getString("modelo"),rs.getString("fk_marca_id_marca"),rs.getString("fk_tipo_equipo_id_tipo_equipo"))));
            
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);

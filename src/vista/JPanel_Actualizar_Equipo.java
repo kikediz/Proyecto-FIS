@@ -72,29 +72,29 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         id_equipo_JTextField.setToolTipText("Introduzca el id de equipo que desea actualizar");
         add(id_equipo_JTextField, new GBConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 20, 5, 20), 0, 0));
         
-        /*id_sala_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
+        id_sala_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_sala_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_sala_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_sala_JLabel.setText("Id Sala");
         add(id_sala_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
-        */
+        
         id_sala_Choice.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_sala_Choice.setForeground(new java.awt.Color(0, 0, 0));
         //id_sala_Choice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_sala_Choice.add("Id de Sala");
-        add(id_sala_Choice, new GBConstraints(0, 1, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 100, 5, 100), 0, 0));
+        add(id_sala_Choice, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 100, 5, 100), 0, 0));
         
-        /*tipo_equipo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
+        tipo_equipo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         tipo_equipo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         tipo_equipo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tipo_equipo_JLabel.setText("Id Tipo Equipo");
         add(tipo_equipo_JLabel, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
-        */
+        
         tipo_equipo_Choice.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         tipo_equipo_Choice.setForeground(new java.awt.Color(0, 0, 0));
         //id_sala_Choice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tipo_equipo_Choice.add("Id de Tipo Equipo");
-        add(tipo_equipo_Choice, new GBConstraints(0, 2, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 100, 5, 100), 0, 0));
+        add(tipo_equipo_Choice, new GBConstraints(1, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 100, 5, 100), 0, 0));
         
         modelo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         modelo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -108,17 +108,17 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         modelo_JTextField.setToolTipText("Introduzca el modelo de equipo que desea actualizar");
         add(modelo_JTextField, new GBConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 20, 5, 20), 0, 0));
         
-        /*id_marca_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
+        id_marca_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_marca_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_marca_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_marca_JLabel.setText("Id Marca");
         add(id_marca_JLabel, new GBConstraints(0, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
-        */
+        
         id_marca_Choice.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_marca_Choice.setForeground(new java.awt.Color(0, 0, 0));
         //id_sala_Choice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         id_marca_Choice.add("Id marca de Equipo");
-        add(id_marca_Choice, new GBConstraints(0, 4, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 100, 5, 100), 0, 0));
+        add(id_marca_Choice, new GBConstraints(1, 4, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 100, 5, 100), 0, 0));
         
         exito.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         exito.setForeground(new java.awt.Color(0, 0, 0));

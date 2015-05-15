@@ -8,6 +8,10 @@ package controlador;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Level;
@@ -190,6 +194,7 @@ public class Controlador{
         LoginDTO logDTO = lDAO.read(new LoginDTO(login));
         System.out.println("Rol: " + logDTO.getRol());
         if(logDTO.getRol() != null){
+            jPanel_Login.dispose();
             formulario.setTitle(logDTO.getRol()+" "+title);
             formulario.pack();
             formulario.setLocationRelativeTo(null);
@@ -798,6 +803,52 @@ public class Controlador{
             actionActualizarEquipo(e);
             }
         });
+        jPanel_Actualizar_Equipo.getId_equipo_JTextField().addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                actionConsultarEquipo(e);
+            }
+        });
+    }
+    
+    private void actionConsultarEquipo(KeyEvent ae){  
+        if(jPanel_Actualizar_Equipo.getId_equipo_JTextField().getText().length()>0){
+            Equipo equipo = new Equipo();
+            equipo.setId_equipo(jPanel_Actualizar_Equipo.getId_equipo_JTextField().getText());
+
+            EquipoDAO eDAO= new EquipoDAO();
+            EquipoDTO eqDTO = eDAO.read(new EquipoDTO(equipo));
+            if(eqDTO.getId_equipo() != null){
+                String id_sal=""+eqDTO.getId_sala();
+                System.out.println("id_sala: "+eqDTO.getId_sala());
+                jPanel_Actualizar_Equipo.getId_sala_Choice().add(id_sal);
+                jPanel_Actualizar_Equipo.getId_sala_Choice().select(id_sal);
+                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().add(eqDTO.getId_tipo_equipo());
+                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().select(eqDTO.getId_tipo_equipo());
+                jPanel_Actualizar_Equipo.getModelo_JTextField().setText(eqDTO.getModelo());
+                jPanel_Actualizar_Equipo.getId_marca_Choice().add(eqDTO.getId_marca());
+                jPanel_Actualizar_Equipo.getId_marca_Choice().select(eqDTO.getId_marca());
+                jPanel_Actualizar_Equipo.getExito().setForeground(Color.green);
+                jPanel_Actualizar_Equipo.getExito().setText("Operación exitosa");
+                
+                
+            }
+            else {
+                jPanel_Actualizar_Equipo.getExito().setForeground(Color.red);
+                jPanel_Actualizar_Equipo.getExito().setText("Operacion sin éxito");
+            }
+        }
     }
     
     private void actionAgregar_Equipo(){
