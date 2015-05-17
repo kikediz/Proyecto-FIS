@@ -28,6 +28,7 @@ public class EquipoDAO implements CRUD<EquipoDTO> {
     private static final String SQL_READ="select * from PERSONA where cedula=?";
     private static final String SQL_READALL="select * from sala";   
     private static final String SQL_READ_ID="select * from equipo where id_equipo=?";
+    private static final String SQL_READ_ID_SALA="select id_sala from sala";
        
    private static final Conexion con= Conexion.entregarConexion();
     
@@ -93,10 +94,7 @@ public class EquipoDAO implements CRUD<EquipoDTO> {
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{con.cerraConexion();}
-        return l;  
-
-        
-        
+        return l;
     }
 
     @Override
