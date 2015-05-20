@@ -62,53 +62,54 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
         setAutoscrolls(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLayout(new java.awt.GridBagLayout());
+        
         id_licencia_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_licencia_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_licencia_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_licencia_JLabel.setText("Cedula");
-        add(id_licencia_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        id_licencia_JLabel.setText("Id licencia");
+        add(id_licencia_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         id_licencia_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         id_licencia_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         id_licencia_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         id_licencia_JTextField.setToolTipText("Introduzca la cedula que desea registrar");
-        add(id_licencia_JTextField, new GBConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(id_licencia_JTextField, new GBConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         producto_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         producto_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         producto_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        producto_JLabel.setText("Nombre");
-        add(producto_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        producto_JLabel.setText("Producto");
+        add(producto_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         producto_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         producto_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         producto_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         producto_JTextField.setToolTipText("Introduzca el nombre de la persona que desea actualizar");
-        add(producto_JTextField, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(producto_JTextField, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         cantidad_actual_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         cantidad_actual_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         cantidad_actual_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cantidad_actual_JLabel.setText("Correo");
-        add(cantidad_actual_JLabel, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        cantidad_actual_JLabel.setText("Cantidad");
+        add(cantidad_actual_JLabel, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         cantidad_actual_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         cantidad_actual_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         cantidad_actual_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cantidad_actual_JTextField.setToolTipText("Introduzca el correo de la persona que desea actualizar");
-        add(cantidad_actual_JTextField, new GBConstraints(1, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(cantidad_actual_JTextField, new GBConstraints(1, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 10, 26), 0, 0));
 
         cupo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         cupo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         cupo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cupo_JLabel.setText("Correo");
-        add(cupo_JLabel, new GBConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        cupo_JLabel.setText("Cupo");
+        add(cupo_JLabel, new GBConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         cupo_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         cupo_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         cupo_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cupo_JTextField.setToolTipText("Introduzca el correo de la persona que desea actualizar");
-        add(cupo_JTextField, new GBConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(cupo_JTextField, new GBConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         //fecha_expiracion_JCalendar.setFont(new java.awt.Font("Dustismo", 1, 26));
         fecha_expiracion_JCalendar.setTitleFont(new java.awt.Font("Serif", java.awt.Font.BOLD|java.awt.Font.ITALIC, 24));
@@ -117,7 +118,7 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
         fecha_expiracion_JCalendar.setTimeFont(new java.awt.Font("DialogInput", java.awt.Font.PLAIN, 10));
         fecha_expiracion_JCalendar.setTodayFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 14));
         fecha_expiracion_JCalendar.setBorder(compoundBorder);
-        add(fecha_expiracion_JCalendar, new GBConstraints(0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(fecha_expiracion_JCalendar, new GBConstraints(50, 1, 1, 1, 0.1, 0.1, GridBagConstraints.WEST, 0, new java.awt.Insets(32, 15, 10, 70), 0, 0));
         
         exito.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         exito.setForeground(new java.awt.Color(0, 0, 0));

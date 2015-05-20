@@ -29,7 +29,8 @@ public class Licencia_EquipoDAO implements CRUD<Licencia_EquipoDTO> {
     private static final String SQL_DELETE="delete from PERSONA where cedula=?";
     private static final String SQL_UPDATE="update PERSONA set correo=?,nombre=?  where cedula=?";
     private static final String SQL_READ="select * from PERSONA where cedula=?";
-    private static final String SQL_READALL="select * from PERSONA";   
+    private static final String SQL_READALL="select * from PERSONA";
+    private static final String SQL_READ_ID="select * from licencia_equipo where id_licencia=?";
        
    private static final Conexion con= Conexion.entregarConexion();
     
@@ -84,21 +85,18 @@ public class Licencia_EquipoDAO implements CRUD<Licencia_EquipoDTO> {
     public Licencia_EquipoDTO read(Licencia_EquipoDTO licencia_EquipoDTO) {
          Licencia_EquipoDTO l=null;
         try {
-            ps=con.getCnn().prepareStatement(SQL_READ);
+            ps=con.getCnn().prepareStatement(SQL_READ_ID);
             ResultSet rs;
-            ps.setString(1,licencia_EquipoDTO.getFecha_instalacion());
+            ps.setString(1,licencia_EquipoDTO.getId_licencia());
             rs=ps.executeQuery();
             while(rs.next()){
-                l=new Licencia_EquipoDTO(new Licencia_Equipo("","",""));
+                l=new Licencia_EquipoDTO(new Licencia_Equipo(rs.getString("id_licencia"),rs.getString("id_equipo"),rs.getString("fecha_instalacion")));
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(Licencia_EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{con.cerraConexion();}
-        return l;  
-
-        
-        
+        return l;          
     }
 
     @Override

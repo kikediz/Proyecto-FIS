@@ -13,6 +13,7 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import org.freixas.jcalendar.JCalendar;
 
 /**
@@ -20,11 +21,11 @@ import org.freixas.jcalendar.JCalendar;
  * @author morte
  */
 public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
-    
+
     private javax.swing.JLabel id_licencia_JLabel;
-    private java.awt.Choice id_licencia_Choice;
+    private javax.swing.JTextField id_licencia_JTextField;
     private javax.swing.JLabel id_equipo_JLabel;
-    private java.awt.Choice id_equipo_Choice;
+    private javax.swing.JTextField id_equipo_JTextField;
     private org.freixas.jcalendar.JCalendar fecha_instalacion_JCalendar;
     private javax.swing.JButton actualizar_JButton;
     private javax.swing.JButton limpiarJButton;
@@ -40,9 +41,9 @@ public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
     
     private void initComponents(){
         id_licencia_JLabel = new javax.swing.JLabel();
-        id_licencia_Choice = new java.awt.Choice();
+        id_licencia_JTextField = new javax.swing.JTextField();
         id_equipo_JLabel = new javax.swing.JLabel();
-        id_equipo_Choice = new java.awt.Choice();
+        id_equipo_JTextField = new javax.swing.JTextField();
         fecha_instalacion_JCalendar = new org.freixas.jcalendar.JCalendar(org.freixas.jcalendar.JCalendar.DISPLAY_DATE | org.freixas.jcalendar.JCalendar.DISPLAY_TIME,true);
         actualizar_JButton = new javax.swing.JButton();
         exito=new  javax.swing.JLabel();
@@ -59,26 +60,26 @@ public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
         id_licencia_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_licencia_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_licencia_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_licencia_JLabel.setText("Cedula");
-        add(id_licencia_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        id_licencia_JLabel.setText("Id licencia");
+        add(id_licencia_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
-        id_licencia_Choice.setBackground(new java.awt.Color(240, 240, 240));
-        id_licencia_Choice.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
-        //id_licencia_Choice.setHorizontalAlignment(java.awt.Choice.CENTER_ALIGNMENT);
-        id_licencia_Choice.add("Id Licencia");
-        add(id_licencia_Choice, new GBConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        id_licencia_JTextField.setBackground(new java.awt.Color(240, 240, 240));
+        id_licencia_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
+        id_licencia_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        id_licencia_JTextField.setToolTipText("Introduzca el id de equipo que desea actualizar");
+        add(id_licencia_JTextField, new GBConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         id_equipo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_equipo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_equipo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_equipo_JLabel.setText("Nombre");
-        add(id_equipo_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        id_equipo_JLabel.setText("Id equipo");
+        add(id_equipo_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
-        id_equipo_Choice.setBackground(new java.awt.Color(240, 240, 240));
-        id_equipo_Choice.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
-        //id_equipo_Choice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        id_equipo_Choice.add("Id Equipo");
-        add(id_equipo_Choice, new GBConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        id_equipo_JTextField.setBackground(new java.awt.Color(240, 240, 240));
+        id_equipo_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
+        id_equipo_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        id_equipo_JTextField.setToolTipText("Introduzca el id de equipo que desea actualizar");
+        add(id_equipo_JTextField, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
         fecha_instalacion_JCalendar.setTitleFont(new java.awt.Font("Serif", java.awt.Font.BOLD|java.awt.Font.ITALIC, 24));
         fecha_instalacion_JCalendar.setDayOfWeekFont(new java.awt.Font("SansSerif", java.awt.Font.ITALIC, 12));
@@ -129,15 +130,7 @@ public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
     public void setId_licencia_JLabel(JLabel id_licencia_JLabel) {
         this.id_licencia_JLabel = id_licencia_JLabel;
     }
-
-    public Choice getId_licencia_Choice() {
-        return id_licencia_Choice;
-    }
-
-    public void setId_licencia_Choice(Choice id_licencia_Choice) {
-        this.id_licencia_Choice = id_licencia_Choice;
-    }
-
+    
     public JLabel getId_equipo_JLabel() {
         return id_equipo_JLabel;
     }
@@ -145,15 +138,7 @@ public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
     public void setId_equipo_JLabel(JLabel id_equipo_JLabel) {
         this.id_equipo_JLabel = id_equipo_JLabel;
     }
-
-    public Choice getId_equipo_Choice() {
-        return id_equipo_Choice;
-    }
-
-    public void setId_equipo_Choice(Choice id_equipo_Choice) {
-        this.id_equipo_Choice = id_equipo_Choice;
-    }
-
+    
     public JCalendar getFecha_instalacion_JCalendar() {
         return fecha_instalacion_JCalendar;
     }
@@ -185,10 +170,26 @@ public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
     public void setExito(JLabel exito) {
         this.exito = exito;
     }
+    public JTextField getId_licencia_JTextField() {
+        return id_licencia_JTextField;
+    }
+
+    public void setId_licencia_JTextField(JTextField id_licencia_JTextField) {
+        this.id_licencia_JTextField = id_licencia_JTextField;
+    }
+
+    public JTextField getId_equipo_JTextField() {
+        return id_equipo_JTextField;
+    }
+
+    public void setId_equipo_JTextField(JTextField id_equipo_JTextField) {
+        this.id_equipo_JTextField = id_equipo_JTextField;
+    }
+    
     
     public void limpiar(){
-        id_licencia_Choice.select("Id Licencia");
-        id_equipo_Choice.select("Id Equipo");
+        id_licencia_JTextField.setText("");
+        id_equipo_JTextField.setText("");
         fecha_instalacion_JCalendar.setDate(new Date());
     }
 

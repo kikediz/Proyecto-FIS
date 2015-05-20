@@ -96,7 +96,25 @@ public class EquipoDAO implements CRUD<EquipoDTO> {
         }finally{con.cerraConexion();}
         return l;
     }
+    
+    public boolean sala(EquipoDTO equipoDTO) {
+        EquipoDTO l=new EquipoDTO();
+        try {
+            ps=con.getCnn().prepareStatement(SQL_READ_ID_SALA);
+            ResultSet rs;
+            ps.setInt(1,equipoDTO.getId_sala());
+            rs=ps.executeQuery();
+            while(rs.next()){
+               rs.getString("id_sala");
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{con.cerraConexion();}
+        return false;
+    }
 
+    
     @Override
     public List<EquipoDTO> readAll() {
        ArrayList <EquipoDTO> personas=new ArrayList();

@@ -14,10 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author morte
- */
+
 public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
 
     private javax.swing.JLabel id_equipo_JLabel;
@@ -62,7 +59,7 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         setLayout(new java.awt.GridBagLayout());
         id_equipo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_equipo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
-        id_equipo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        id_equipo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         id_equipo_JLabel.setText("Id Equipo");
         add(id_equipo_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
         
