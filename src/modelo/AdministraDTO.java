@@ -21,7 +21,7 @@ public class AdministraDTO {
 
     public AdministraDTO(Administra administra) {
         this.id_persona = administra.getId_persona();
-        this.id_sala = administra.getId_persona();
+        this.id_sala = administra.getId_sala();
         this.fecha_entrada = administra.getFecha_entrada();
         this.fecha_salida = administra.getFecha_salida();
     }
