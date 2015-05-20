@@ -26,7 +26,8 @@ public class AdministraDAO implements CRUD<AdministraDTO> {
     private static final String SQL_DELETE="delete from PERSONA where cedula=?";
     private static final String SQL_UPDATE="update PERSONA set correo=?,nombre=?  where cedula=?";
     private static final String SQL_READ="select * from PERSONA where cedula=?";
-    private static final String SQL_READALL="select * from PERSONA";   
+    private static final String SQL_READALL="select * from PERSONA"; 
+    private static final String SQL_READ_ID="select * from ADMINISTRA where id_persona=?";
        
    private static final Conexion con= Conexion.entregarConexion();
     
@@ -81,22 +82,20 @@ public class AdministraDAO implements CRUD<AdministraDTO> {
     public AdministraDTO read(AdministraDTO administraDTO) {
          AdministraDTO l=null;
         try {
-            ps=con.getCnn().prepareStatement(SQL_READ);
+            ps=con.getCnn().prepareStatement(SQL_READ_ID);
             ResultSet rs;
             ps.setInt(1,administraDTO.getId_persona());
             rs=ps.executeQuery();
             while(rs.next()){
-                l=new AdministraDTO(new Administra(0,0,"",""));
+                l=new AdministraDTO(new Administra(rs.getInt("id_persona"),rs.getInt("id_sala"),rs.getString("fecha_entrada"),rs.getString("fecha_salida")));
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(AdministraDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{con.cerraConexion();}
-        return l;  
-
-        
-        
+        return l;       
     }
+    
 
     @Override
     public List<AdministraDTO> readAll() {
