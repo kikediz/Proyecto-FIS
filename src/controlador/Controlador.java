@@ -160,10 +160,8 @@ public class Controlador{
         this.jPanel_Login = logginPanel;
         this.formulario = view;
         accionJMenu();
-        //actionActualizar_Equipo();
-        //actionActualizar_Administrador();
-        //actionActualizar_Licencia();
-        actionActualizar_Licencia_Equipo();
+        actionActualizar_Equipo();
+        
     }
     
     public void iniciarVista() {
@@ -586,7 +584,7 @@ public class Controlador{
     public void actionActualizarAdministrador(ActionEvent ae) {       
         Administra administra = new Administra();
         administra.setId_persona(Integer.parseInt(jPanel_Actualizar_Administrador.getCedula_JTextField().getText()));
-        administra.setId_sala(Integer.parseInt(jPanel_Actualizar_Administrador.getId_sala_Choice().getSelectedItem()));
+        administra.setId_sala(Integer.parseInt(jPanel_Actualizar_Administrador.getId_sala_JTextField().getText()));
         administra.setFecha_entrada(jPanel_Actualizar_Administrador.getFecha_entrada_JTextField().getText());
         administra.setFecha_salida(jPanel_Actualizar_Administrador.getFecha_salida_JTextField().getText());
         
@@ -610,47 +608,6 @@ public class Controlador{
             actionActualizarAdministrador(e);
             }
         });
-        jPanel_Actualizar_Administrador.getCedula_JTextField().addKeyListener(new KeyListener() {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                accioncosultarpaneladministrador(e);
-            }
-        });
-    }
-    
-    public void accioncosultarpaneladministrador(KeyEvent e){
-        if(jPanel_Actualizar_Administrador.getCedula_JTextField().getText().length()>0){
-            Administra administra = new Administra();
-            administra.setId_persona(Integer.parseInt(jPanel_Actualizar_Administrador.getCedula_JTextField().getText()));
-
-            AdministraDAO aDAO= new AdministraDAO();
-            AdministraDTO aDTO = aDAO.read(new AdministraDTO(administra));
-            if(aDTO.getId_persona() != 0){
-                jPanel_Actualizar_Administrador.getCedula_JTextField().setText(Integer.toString(aDTO.getId_persona()));
-                jPanel_Actualizar_Administrador.getId_sala_Choice().add(Integer.toString(aDTO.getId_sala()));
-                jPanel_Actualizar_Administrador.getId_sala_Choice().addItem(Integer.toString(aDTO.getId_sala()));
-                jPanel_Actualizar_Administrador.getFecha_entrada_JTextField().setText(aDTO.getFecha_entrada());
-                jPanel_Actualizar_Administrador.getFecha_salida_JTextField().setText(aDTO.getFecha_salida());
-                jPanel_Actualizar_Administrador.getExito().setForeground(Color.green);
-                jPanel_Actualizar_Administrador.getExito().setText("Operación exitosa");                                                
-            }
-            else {
-                jPanel_Actualizar_Administrador.getExito().setForeground(Color.red);
-                jPanel_Actualizar_Administrador.getExito().setText("Operacion sin éxito");
-            }
-        }
-        
     }
     
     private void actionAgregar_Administrador(){
@@ -1090,45 +1047,9 @@ public class Controlador{
             actionActualizarLicencia(e);
             }
         });
-        jPanel_Actualizar_Licencia.getId_licencia_JTextField().addKeyListener(new KeyListener() {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                actionConsultarLicencia(e);
-            }
-        });
     }
     
-    private void actionConsultarLicencia(KeyEvent e){
-        if(jPanel_Actualizar_Licencia.getId_licencia_JTextField().getText().length()>0){
-            Licencia licencia = new Licencia();
-            licencia.setId_licencia(jPanel_Actualizar_Licencia.getId_licencia_JTextField().getText()); 
-            LicenciaDAO lDAO = new LicenciaDAO();
-            LicenciaDTO lDTO = lDAO.read(new LicenciaDTO(licencia));
-            if(lDTO.getId_licencia() != null){
-                jPanel_Actualizar_Licencia.getId_licencia_JTextField().setText(lDTO.getId_licencia());
-                jPanel_Actualizar_Licencia.getProducto_JTextField().setText(lDTO.getProducto());
-                jPanel_Actualizar_Licencia.getCantidad_actual_JTextField().setText(Integer.toString(lDTO.getCantidad_actual()));
-                jPanel_Actualizar_Licencia.getCupo_JTextField().setText(Integer.toString(lDTO.getCupo()));
-                jPanel_Actualizar_Licencia.getExito().setForeground(Color.green);
-                jPanel_Actualizar_Licencia.getExito().setText("Operación exitosa");
-            }else {
-                jPanel_Actualizar_Licencia.getExito().setForeground(Color.red);
-                jPanel_Actualizar_Licencia.getExito().setText("Operacion sin éxito");
-            }
-        }
-    }
-       
+    
     private void actionAgregar_Licencia(){
         if(jPanel_Agregar_Licencia==null){
             jPanel_Agregar_Licencia = new JPanel_Agregar_Licencia();
@@ -1298,8 +1219,8 @@ public class Controlador{
     
     public void actionActualizarLicenciaEquipo(ActionEvent ae) {       
         Licencia_Equipo licencia_Equipo = new Licencia_Equipo();
-        licencia_Equipo.setId_licencia(jPanel_Actualizar_Licencia_Equipo.getId_licencia_JTextField().getText());
-        licencia_Equipo.setId_equipo(jPanel_Actualizar_Licencia_Equipo.getId_equipo_JTextField().getText());
+        licencia_Equipo.setId_licencia(jPanel_Actualizar_Licencia_Equipo.getId_licencia_Choice().getSelectedItem());
+        licencia_Equipo.setId_equipo(jPanel_Actualizar_Licencia_Equipo.getId_equipo_Choice().getSelectedItem());
         licencia_Equipo.setFecha_instalacion((jPanel_Actualizar_Licencia_Equipo.getFecha_instalacion_JCalendar().getDate()).toString());
         
         Licencia_EquipoDAO lDAO= new Licencia_EquipoDAO();
@@ -1321,42 +1242,8 @@ public class Controlador{
             public void actionPerformed(ActionEvent e) {
             actionActualizarLicenciaEquipo(e);
             }
-        });jPanel_Actualizar_Licencia_Equipo.getId_licencia_JTextField().addKeyListener(new KeyListener() {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                actionConsultarLicenciaEquipo(e);
-            }
         });
     }
-    
-    private void actionConsultarLicenciaEquipo(KeyEvent e){
-        if(jPanel_Actualizar_Licencia_Equipo.getId_licencia_JTextField().getText().length()>0){
-            Licencia_Equipo licenciaequipo = new Licencia_Equipo();
-            licenciaequipo.setId_licencia(jPanel_Actualizar_Licencia_Equipo.getId_licencia_JTextField().getText()); 
-            Licencia_EquipoDAO leDAO = new Licencia_EquipoDAO();
-            Licencia_EquipoDTO leDTO = leDAO.read(new Licencia_EquipoDTO(licenciaequipo));
-            if(leDTO.getId_licencia() != null){
-                jPanel_Actualizar_Licencia_Equipo.getId_licencia_JTextField().setText(leDTO.getId_licencia());
-                jPanel_Actualizar_Licencia_Equipo.getId_equipo_JTextField().setText(leDTO.getId_equipo());
-                jPanel_Actualizar_Licencia_Equipo.getExito().setForeground(Color.green);
-                jPanel_Actualizar_Licencia_Equipo.getExito().setText("Operación exitosa");
-            }else {
-                jPanel_Actualizar_Licencia_Equipo.getExito().setForeground(Color.red);
-                jPanel_Actualizar_Licencia_Equipo.getExito().setText("Operacion sin éxito");
-            }
-        }       
-    }    
     
     private void actionAgregar_Licencia_Equipo(){
         if(jPanel_Agregar_Licencia_Equipo==null){

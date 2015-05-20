@@ -5,7 +5,6 @@
  */
 package vista;
 
-import java.awt.Choice;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,7 +23,6 @@ public class JPanel_Actualizar_Administrador extends JPanel implements Panels{
     private javax.swing.JTextField cedula_JTextField;
     private javax.swing.JLabel id_sala_JLabel;
     private javax.swing.JTextField id_sala_JTextField;
-    private java.awt.Choice id_sala_Choice;
     private javax.swing.JLabel fecha_entrada_JLabel;
     private javax.swing.JTextField fecha_entrada_JTextField;
     private javax.swing.JLabel fecha_salida_JLabel;
@@ -42,7 +40,6 @@ public class JPanel_Actualizar_Administrador extends JPanel implements Panels{
         cedula_JTextField = new javax.swing.JTextField();
         id_sala_JLabel = new javax.swing.JLabel();
         id_sala_JTextField = new javax.swing.JTextField();
-        id_sala_Choice = new Choice();
         fecha_entrada_JLabel = new javax.swing.JLabel();
         fecha_entrada_JTextField = new javax.swing.JTextField();
         fecha_salida_JLabel = new javax.swing.JLabel();
@@ -73,11 +70,11 @@ public class JPanel_Actualizar_Administrador extends JPanel implements Panels{
         id_sala_JLabel.setText("Id Sala");
         add(id_sala_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
         
-        id_sala_Choice.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
-        id_sala_Choice.setForeground(new java.awt.Color(0, 0, 0));
-        //id_sala_Choice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_sala_Choice.add("Id de Sala");
-        add(id_sala_Choice, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 100, 5, 100), 0, 0));
+        id_sala_JTextField.setBackground(new java.awt.Color(240, 240, 240));
+        id_sala_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
+        id_sala_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        id_sala_JTextField.setToolTipText("Introduzca el id de la sala que desea actualizar");
+        add(id_sala_JTextField, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(0, 0, 0, 0), 0, 0));
         
         fecha_entrada_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         fecha_entrada_JLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -97,11 +94,11 @@ public class JPanel_Actualizar_Administrador extends JPanel implements Panels{
         fecha_salida_JLabel.setText("Fecha de Salida");
         add(fecha_salida_JLabel, new GBConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
         
-        fecha_salida_JTextField.setBackground(new java.awt.Color(240, 240, 240));
-        fecha_salida_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
-        fecha_salida_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        fecha_salida_JTextField.setToolTipText("Introduzca la fecha de salida que desea actualizar");
-        add(fecha_salida_JTextField, new GBConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        fecha_entrada_JTextField.setBackground(new java.awt.Color(240, 240, 240));
+        fecha_entrada_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
+        fecha_entrada_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        fecha_entrada_JTextField.setToolTipText("Introduzca la fecha de salida que desea actualizar");
+        add(fecha_entrada_JTextField, new GBConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(0, 0, 0, 0), 0, 0));
         
         exito.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         exito.setForeground(new java.awt.Color(0, 0, 0));
@@ -225,15 +222,6 @@ public class JPanel_Actualizar_Administrador extends JPanel implements Panels{
     public void setExito(JLabel exito) {
         this.exito = exito;
     }
-    
-    public Choice getId_sala_Choice() {
-        return id_sala_Choice;
-    }
-
-    public void setId_sala_Choice(Choice id_sala_Choice) {
-        this.id_sala_Choice = id_sala_Choice;
-    }
-
     
     public void limpiar(){
         cedula_JTextField.setText("");

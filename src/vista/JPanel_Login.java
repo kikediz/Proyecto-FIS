@@ -67,13 +67,13 @@ public class JPanel_Login extends javax.swing.JFrame implements Panels{
         password_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         password_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         password_JLabel.setText("Password");
-        add(password_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 100, 40, 100), 0, 0));
+        add(password_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 100, 0, 100), 0, 0));
         
         password_JPasswordField.setBackground(new java.awt.Color(240, 240, 240));
         password_JPasswordField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         password_JPasswordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         password_JPasswordField.setToolTipText("Introduzca su contraseña");
-        add(password_JPasswordField, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 20, 40, 50), 0, 0));
+        add(password_JPasswordField, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 20, 5, 50), 0, 0));
         
         entrar_JButton.setBackground(new java.awt.Color(230, 230, 230));
         entrar_JButton.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 32)); // NOI18N
@@ -83,7 +83,7 @@ public class JPanel_Login extends javax.swing.JFrame implements Panels{
         entrar_JButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.lightGray)));
         entrar_JButton.setContentAreaFilled(true);
         entrar_JButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(entrar_JButton, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 3, 0), 0, 0));
+        add(entrar_JButton, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
         
         salir_JButton.setBackground(new java.awt.Color(230, 230, 230));
         salir_JButton.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 32)); // NOI18N
@@ -93,7 +93,7 @@ public class JPanel_Login extends javax.swing.JFrame implements Panels{
         salir_JButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.lightGray)));
         salir_JButton.setContentAreaFilled(true);
         salir_JButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(salir_JButton, new GBConstraints(1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 3, 0), 0, 0));
+        add(salir_JButton, new GBConstraints(1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
         
     }
     
