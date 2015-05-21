@@ -14,6 +14,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -22,6 +32,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import vista.JFrame_Formulario;
 import modelo.*;
+import sun.util.calendar.LocalGregorianCalendar;
 import vista.Agregar_Pestana;
 import vista.JPanel_Acerca_de;
 import vista.JPanel_Ayuda;
@@ -1115,11 +1126,30 @@ public class Controlador{
             licencia.setId_licencia(jPanel_Actualizar_Licencia.getId_licencia_JTextField().getText()); 
             LicenciaDAO lDAO = new LicenciaDAO();
             LicenciaDTO lDTO = lDAO.read(new LicenciaDTO(licencia));
-            if(lDTO.getId_licencia() != null){
-                jPanel_Actualizar_Licencia.getId_licencia_JTextField().setText(lDTO.getId_licencia());
-                jPanel_Actualizar_Licencia.getProducto_JTextField().setText(lDTO.getProducto());
-                jPanel_Actualizar_Licencia.getCantidad_actual_JTextField().setText(Integer.toString(lDTO.getCantidad_actual()));
-                jPanel_Actualizar_Licencia.getCupo_JTextField().setText(Integer.toString(lDTO.getCupo()));
+            if(lDTO!=null){
+                //jPanel_Actualizar_Licencia.getId_licencia_JTextField().setText(lDTO.getId_licencia());
+                try {
+                    jPanel_Actualizar_Licencia.getProducto_JTextField().setText(lDTO.getProducto());
+                    jPanel_Actualizar_Licencia.getCantidad_actual_JTextField().setText(Integer.toString(lDTO.getCantidad_actual()));
+                    jPanel_Actualizar_Licencia.getCupo_JTextField().setText(Integer.toString(lDTO.getCupo()));
+                } catch (NullPointerException exception) {
+                    //exception.printStackTrace();
+                }
+               
+                try {
+                    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+                   jPanel_Actualizar_Licencia.getFecha_expiracion_JCalendar().setDate(dateFormat.parse(lDTO.getFecha_expiraccion()));
+                } catch (ParseException ex) {
+                    DateFormat dateFormat=DateFormat.getInstance();
+                    Calendar cal=dateFormat.getCalendar();
+                    cal.set(2013, 01, 20);
+                    System.out.println(Timestamp.valueOf("2014-01-13"+ " 00:00:00"));
+                    
+                    
+                    
+                   // System.out.println(DateFormat.getDateInstance(DateFormat.SHORT).getCalendar().getTime().);
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 jPanel_Actualizar_Licencia.getExito().setForeground(Color.green);
                 jPanel_Actualizar_Licencia.getExito().setText("Operación exitosa");
             }else {

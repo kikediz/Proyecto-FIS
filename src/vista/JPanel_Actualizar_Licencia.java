@@ -27,6 +27,7 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
     private javax.swing.JTextField cantidad_actual_JTextField;
     private javax.swing.JLabel cupo_JLabel;
     private javax.swing.JTextField cupo_JTextField;
+    private javax.swing.JLabel fecha_expiracion_JLabel;
     private org.freixas.jcalendar.JCalendar fecha_expiracion_JCalendar;
     private javax.swing.JButton actualizar_JButton;
     private javax.swing.JButton limpiarJButton;
@@ -49,6 +50,7 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
         cantidad_actual_JTextField = new javax.swing.JTextField();
         cupo_JLabel = new javax.swing.JLabel();
         cupo_JTextField = new javax.swing.JTextField();
+        fecha_expiracion_JLabel = new javax.swing.JLabel();
         fecha_expiracion_JCalendar = new org.freixas.jcalendar.JCalendar(org.freixas.jcalendar.JCalendar.DISPLAY_DATE | org.freixas.jcalendar.JCalendar.DISPLAY_TIME,true);
         actualizar_JButton = new javax.swing.JButton();
         exito=new  javax.swing.JLabel();
@@ -111,6 +113,12 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
         cupo_JTextField.setToolTipText("Introduzca el correo de la persona que desea actualizar");
         add(cupo_JTextField, new GBConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 10, 26), 0, 0));
         
+        fecha_expiracion_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
+        fecha_expiracion_JLabel.setForeground(new java.awt.Color(0, 0, 0));
+        fecha_expiracion_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fecha_expiracion_JLabel.setText("Fecha de Expiración");
+        add(fecha_expiracion_JLabel, new GBConstraints(3, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 10, 26), 0, 0));
+        
         //fecha_expiracion_JCalendar.setFont(new java.awt.Font("Dustismo", 1, 26));
         fecha_expiracion_JCalendar.setTitleFont(new java.awt.Font("Serif", java.awt.Font.BOLD|java.awt.Font.ITALIC, 24));
         fecha_expiracion_JCalendar.setDayOfWeekFont(new java.awt.Font("SansSerif", java.awt.Font.ITALIC, 12));
@@ -118,7 +126,7 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
         fecha_expiracion_JCalendar.setTimeFont(new java.awt.Font("DialogInput", java.awt.Font.PLAIN, 10));
         fecha_expiracion_JCalendar.setTodayFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 14));
         fecha_expiracion_JCalendar.setBorder(compoundBorder);
-        add(fecha_expiracion_JCalendar, new GBConstraints(50, 1, 1, 1, 0.1, 0.1, GridBagConstraints.WEST, 0, new java.awt.Insets(32, 15, 10, 70), 0, 0));
+        add(fecha_expiracion_JCalendar, new GBConstraints(3, 1, 1, 1, 0.1, 0.1, GridBagConstraints.WEST, 0, new java.awt.Insets(32, 15, 10, 70), 0, 0));
         
         exito.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         exito.setForeground(new java.awt.Color(0, 0, 0));

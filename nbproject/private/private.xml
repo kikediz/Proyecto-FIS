@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/morte/NetBeansProjects/salas/src/controlador/Controlador.java</file>
             <file>file:/home/morte/NetBeansProjects/salas/src/controlador/Main.java</file>
+            <file>file:/home/morte/NetBeansProjects/salas/src/vista/JPanel_Actualizar_Licencia.java</file>
             <file>file:/home/morte/NetBeansProjects/salas/src/modelo/LoginDAO.java</file>
             <file>file:/home/morte/NetBeansProjects/salas/src/modelo/Conexion.java</file>
         </group>
