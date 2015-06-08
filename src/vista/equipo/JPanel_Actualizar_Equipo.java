@@ -63,7 +63,7 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         id_equipo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_equipo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         id_equipo_JLabel.setText("Id Equipo");
-        add(id_equipo_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        add(id_equipo_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         
         id_equipo_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         id_equipo_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
@@ -74,32 +74,32 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         id_sala_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_sala_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_sala_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_sala_JLabel.setText("Id Sala");
-        add(id_sala_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        id_sala_JLabel.setText("Sala");
+        add(id_sala_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         
         id_sala_Choice.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_sala_Choice.setForeground(new java.awt.Color(0, 0, 0));
         //id_sala_Choice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_sala_Choice.add("Id de Sala");
+        id_sala_Choice.add("Sala");
         add(id_sala_Choice, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 100, 5, 100), 0, 0));
         
         tipo_equipo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         tipo_equipo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         tipo_equipo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tipo_equipo_JLabel.setText("Id Tipo Equipo");
-        add(tipo_equipo_JLabel, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        tipo_equipo_JLabel.setText("Tipo");
+        add(tipo_equipo_JLabel, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         
         tipo_equipo_Choice.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         tipo_equipo_Choice.setForeground(new java.awt.Color(0, 0, 0));
         //id_sala_Choice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tipo_equipo_Choice.add("Id de Tipo Equipo");
+        tipo_equipo_Choice.add("Tipo");
         add(tipo_equipo_Choice, new GBConstraints(1, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5, 100, 5, 100), 0, 0));
         
         modelo_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         modelo_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         modelo_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         modelo_JLabel.setText("Modelo Equipo");
-        add(modelo_JLabel, new GBConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        add(modelo_JLabel, new GBConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         
         modelo_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         modelo_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
@@ -110,20 +110,20 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         id_marca_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_marca_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_marca_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_marca_JLabel.setText("Id Marca");
-        add(id_marca_JLabel, new GBConstraints(0, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        id_marca_JLabel.setText("Marca");
+        add(id_marca_JLabel, new GBConstraints(0, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         
         id_marca_Choice.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_marca_Choice.setForeground(new java.awt.Color(0, 0, 0));
         //id_sala_Choice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_marca_Choice.add("Id marca de Equipo");
+        id_marca_Choice.add("Marca");
         add(id_marca_Choice, new GBConstraints(1, 4, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 100, 5, 100), 0, 0));
         
         exito.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         exito.setForeground(new java.awt.Color(0, 0, 0));
         exito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exito.setText("");
-        add(exito, new GBConstraints(0, 6, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        add(exito, new GBConstraints(0, 6, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         
         actualizar_JButton.setBackground(new java.awt.Color(230, 230, 230));
         actualizar_JButton.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 32)); // NOI18N
@@ -133,7 +133,7 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         actualizar_JButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.lightGray)));
         actualizar_JButton.setContentAreaFilled(true);
         actualizar_JButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(actualizar_JButton, new GBConstraints(0, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        add(actualizar_JButton, new GBConstraints(0, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         
         limpiarJButton.setBackground(new java.awt.Color(230, 230, 230));
         limpiarJButton.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 32)); // NOI18N
@@ -143,7 +143,7 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
         limpiarJButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.lightGray)));
         limpiarJButton.setContentAreaFilled(true);
         limpiarJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(limpiarJButton, new GBConstraints(1, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(0, 0, 0, 0), 0, 0));
+        add(limpiarJButton, new GBConstraints(1, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(5, 5, 5, 5), 10, 10));
         limpiarJButton.addActionListener(new ActionListener() {
 
             @Override
@@ -260,5 +260,16 @@ public class JPanel_Actualizar_Equipo extends JPanel implements Panels{
     public void limpiar(){
         id_equipo_JTextField.setText("");
         modelo_JTextField.setText("");
+        id_equipo_JLabel.setText("Id Equipo");
+        id_sala_JLabel.setText("Sala");
+        id_sala_Choice.removeAll();
+        id_sala_Choice.add("Sala");
+        tipo_equipo_JLabel.setText("Id Tipo Equipo");
+        tipo_equipo_Choice.removeAll();
+        tipo_equipo_Choice.add("Id de Tipo Equipo");
+        modelo_JLabel.setText("Modelo Equipo");
+        id_marca_JLabel.setText("Id Marca");
+        id_marca_Choice.removeAll();
+        id_marca_Choice.add("Id marca de Equipo");
     }
 }

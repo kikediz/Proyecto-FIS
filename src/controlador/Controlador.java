@@ -54,6 +54,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Timestamp;
@@ -66,6 +68,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -874,10 +877,10 @@ public class Controlador{
     public void actionActualizarEquipo(ActionEvent ae) {       
         Equipo equipo = new Equipo();
         equipo.setId_equipo(jPanel_Actualizar_Equipo.getId_equipo_JTextField().getText());
-        equipo.setId_sala(Integer.parseInt(jPanel_Actualizar_Equipo.getId_sala_Choice().getSelectedItem()));
+        equipo.setId_sala(getIdSala(jPanel_Actualizar_Equipo.getId_sala_Choice().getSelectedItem()));
         equipo.setModelo(jPanel_Actualizar_Equipo.getModelo_JTextField().getText());
-        equipo.setId_marca(jPanel_Actualizar_Equipo.getId_marca_Choice().getSelectedItem());
-        equipo.setId_tipo_equipo(jPanel_Actualizar_Equipo.getTipo_equipo_Choice().getSelectedItem());
+        equipo.setId_marca(getIdMarca(jPanel_Actualizar_Equipo.getId_marca_Choice().getSelectedItem()));
+        equipo.setId_tipo_equipo(getIdTipoEquipo(jPanel_Actualizar_Equipo.getTipo_equipo_Choice().getSelectedItem()));
         
         EquipoDAO eDAO= new EquipoDAO();
         
@@ -916,7 +919,159 @@ public class Controlador{
                 actionConsultarEquipo(e);
             }
         });
+        jPanel_Actualizar_Equipo.getId_sala_Choice().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Sala sala = new Sala();
+                SalaDAO sDAO= new SalaDAO();
+                List<SalaDTO> sDTO = sDAO.readAll();
+                jPanel_Actualizar_Equipo.getId_sala_Choice().removeAll();
+                jPanel_Actualizar_Equipo.getId_sala_Choice().add("Sala");
+                for(int i=0;i<sDTO.size();i++){
+                    jPanel_Actualizar_Equipo.getId_sala_Choice().add(sDTO.get(i).getNombre());
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        jPanel_Actualizar_Equipo.getId_sala_Choice().addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                jPanel_Actualizar_Equipo.getId_sala_JLabel().setText("Id Sala: "+getIdSala(e.getItem().toString()));
+            }
+        });
+        jPanel_Actualizar_Equipo.getTipo_equipo_Choice().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Tipo_Equipo tipo_Equipo = new Tipo_Equipo();
+                Tipo_EquipoDAO tipo_EquipoDAO= new Tipo_EquipoDAO();
+                List<Tipo_EquipoDTO> teDTO = tipo_EquipoDAO.readAll();
+                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().removeAll();
+                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().add("Tipo Equipo");
+                for(int i=0;i<teDTO.size();i++){
+                    jPanel_Actualizar_Equipo.getTipo_equipo_Choice().add(teDTO.get(i).getDescripcion());
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+        jPanel_Actualizar_Equipo.getTipo_equipo_Choice().addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                jPanel_Actualizar_Equipo.getTipo_equipo_JLabel().setText("Id Tipo: "+getIdTipoEquipo(e.getItem().toString()));
+            }
+        });
+        jPanel_Actualizar_Equipo.getModelo_JTextField().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                jPanel_Actualizar_Equipo.getModelo_JTextField().setText("");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+        jPanel_Actualizar_Equipo.getId_marca_Choice().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Marca marca = new Marca();
+                MarcaDAO marcaDAO= new MarcaDAO();
+                List<MarcaDTO> mDTO = marcaDAO.readAll();
+                jPanel_Actualizar_Equipo.getId_marca_Choice().removeAll();
+                jPanel_Actualizar_Equipo.getId_marca_Choice().add("Marca");
+                for(int i=0;i<mDTO.size();i++){
+                    jPanel_Actualizar_Equipo.getId_marca_Choice().add(getDescripcionMarca(mDTO.get(i).getId_marca()));
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+        jPanel_Actualizar_Equipo.getId_marca_Choice().addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                jPanel_Actualizar_Equipo.getId_marca_JLabel().setText("Id Marca: "+getIdMarca(e.getItem().toString()));
+            }
+        });
     }
+    
+    
     
     private void actionConsultarEquipo(KeyEvent ae){  
         if(jPanel_Actualizar_Equipo.getId_equipo_JTextField().getText().length()>0){
@@ -927,14 +1082,17 @@ public class Controlador{
             EquipoDTO eqDTO = eDAO.read(new EquipoDTO(equipo));
             if(eqDTO.getId_equipo() != null){
                 String id_sal=""+eqDTO.getId_sala();
-                System.out.println("id_sala: "+eqDTO.getId_sala());
-                jPanel_Actualizar_Equipo.getId_sala_Choice().add(id_sal);
-                jPanel_Actualizar_Equipo.getId_sala_Choice().select(id_sal);
-                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().add(eqDTO.getId_tipo_equipo());
-                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().select(eqDTO.getId_tipo_equipo());
+                System.out.println(eqDTO.getId_sala());
+                jPanel_Actualizar_Equipo.getId_sala_Choice().add(getNombreSala(eqDTO.getId_sala()));
+                jPanel_Actualizar_Equipo.getId_sala_Choice().select(getNombreSala(eqDTO.getId_sala()));
+                jPanel_Actualizar_Equipo.getId_sala_JLabel().setText("Id Sala "+eqDTO.getId_sala());
+                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().add(getDescripcionTipoEquipo(eqDTO.getId_tipo_equipo()));
+                jPanel_Actualizar_Equipo.getTipo_equipo_Choice().select(getDescripcionTipoEquipo(eqDTO.getId_tipo_equipo()));
+                jPanel_Actualizar_Equipo.getTipo_equipo_JLabel().setText("Id Tipo"+ eqDTO.getId_tipo_equipo());
                 jPanel_Actualizar_Equipo.getModelo_JTextField().setText(eqDTO.getModelo());
-                jPanel_Actualizar_Equipo.getId_marca_Choice().add(eqDTO.getId_marca());
-                jPanel_Actualizar_Equipo.getId_marca_Choice().select(eqDTO.getId_marca());
+                jPanel_Actualizar_Equipo.getId_marca_Choice().add(getDescripcionMarca(eqDTO.getId_marca()));
+                jPanel_Actualizar_Equipo.getId_marca_Choice().select(getDescripcionMarca(eqDTO.getId_marca()));
+                jPanel_Actualizar_Equipo.getId_marca_JLabel().setText("Id Marca "+eqDTO.getId_marca());
                 jPanel_Actualizar_Equipo.getExito().setForeground(Color.green);
                 jPanel_Actualizar_Equipo.getExito().setText("Operación exitosa");
                 
@@ -945,6 +1103,84 @@ public class Controlador{
                 jPanel_Actualizar_Equipo.getExito().setText("Operacion sin éxito");
             }
         }
+    }
+    
+    private String getNombreSala(int id_sala){
+        Sala sala = new Sala();
+        sala.setId_sala(id_sala);
+        SalaDAO salaDAO = new SalaDAO();
+        SalaDTO salaDTO = salaDAO.read_nombre_sala(new SalaDTO(sala));
+        if(salaDTO.getNombre()!=null){
+            return salaDTO.getNombre();
+        }
+        else{
+            return null;
+        }
+    }
+    
+    private int getIdSala(String nombre){
+        Sala sala = new Sala();
+        sala.setNombre(nombre);
+        SalaDAO salaDAO = new SalaDAO();
+        SalaDTO salaDTO = salaDAO.read_id_sala(new SalaDTO(sala));
+        if(salaDTO.getNombre()!=null){
+            return salaDTO.getId_sala();
+        }
+        else{
+            return 0;
+        }
+    }
+    
+    private String getDescripcionTipoEquipo(String id_tipo_equipo){
+        Tipo_Equipo tipo_Equipo = new Tipo_Equipo();
+        tipo_Equipo.setId_Tipo_Equipo(id_tipo_equipo);
+        Tipo_EquipoDAO tipo_EquipoDAO = new Tipo_EquipoDAO();
+        Tipo_EquipoDTO tipo_EquipoDTO = tipo_EquipoDAO.read_descripcion_equipo(new Tipo_EquipoDTO(tipo_Equipo));
+        if(tipo_EquipoDTO.getDescripcion()!=null){
+            return tipo_EquipoDTO.getDescripcion();
+        }
+        else{
+            return null;
+        } 
+    }
+    
+    private String getIdTipoEquipo(String descripcion){
+        Tipo_Equipo tipo_Equipo = new Tipo_Equipo();
+        tipo_Equipo.setDescripcion(descripcion);
+        Tipo_EquipoDAO tipo_EquipoDAO = new Tipo_EquipoDAO();
+        Tipo_EquipoDTO tipo_EquipoDTO = tipo_EquipoDAO.read_id_equipo(new Tipo_EquipoDTO(tipo_Equipo));
+        if(tipo_EquipoDTO.getId_Tipo_Equipo()!=null){
+            return tipo_EquipoDTO.getId_Tipo_Equipo();
+        }
+        else{
+            return null;
+        } 
+    }
+    
+    private String getDescripcionMarca(String id_marca){
+        Marca marca = new Marca();
+        marca.setId_marca(id_marca);
+        MarcaDAO marcaDAO = new MarcaDAO();
+        MarcaDTO marcaDTO = marcaDAO.read_descripcion_marca(new MarcaDTO(marca));
+        if(marcaDTO.getDescripcion()!=null){
+            return marcaDTO.getDescripcion();
+        }
+        else{
+            return null;
+        } 
+    }
+    
+    private String getIdMarca(String descripcion){
+        Marca marca = new Marca();
+        marca.setDescripcion(descripcion);
+        MarcaDAO marcaDAO = new MarcaDAO();
+        MarcaDTO marcaDTO = marcaDAO.read_id_marca(new MarcaDTO(marca));
+        if(marcaDTO.getId_marca()!=null){
+            return marcaDTO.getId_marca();
+        }
+        else{
+            return null;
+        } 
     }
     
     private void actionAgregar_Equipo(){
@@ -3140,7 +3376,7 @@ public class Controlador{
     
     public void actionActualizarTipoEquipo(ActionEvent ae) {       
         Tipo_Equipo tipo_Equipo = new Tipo_Equipo();
-        tipo_Equipo.setId_rol(jPanel_Actualizar_Tipo_Equipo.getId_tipo_equipo_JTextField().getText());
+        tipo_Equipo.setId_Tipo_Equipo(jPanel_Actualizar_Tipo_Equipo.getId_tipo_equipo_JTextField().getText());
         tipo_Equipo.setDescripcion(jPanel_Actualizar_Tipo_Equipo.getDescripcion_JTextArea().getText());
         
         Tipo_EquipoDAO tDAO= new Tipo_EquipoDAO();
@@ -3200,7 +3436,7 @@ public class Controlador{
     
     public void actionAgregarTipoEquipo(ActionEvent ae) {       
         Tipo_Equipo tipo_Equipo = new Tipo_Equipo();
-        tipo_Equipo.setId_rol(jPanel_Agregar_Tipo_Equipo.getId_tipo_equipo_JTextField().getText());
+        tipo_Equipo.setId_Tipo_Equipo(jPanel_Agregar_Tipo_Equipo.getId_tipo_equipo_JTextField().getText());
         tipo_Equipo.setDescripcion(jPanel_Agregar_Tipo_Equipo.getDescripcion_JTextArea().getText());
         
         Tipo_EquipoDAO tDAO= new Tipo_EquipoDAO();
@@ -3260,7 +3496,7 @@ public class Controlador{
     
     public void actionEliminarTipoEquipo(ActionEvent ae) {       
         Tipo_Equipo tipo_Equipo = new Tipo_Equipo();
-        tipo_Equipo.setId_rol(jPanel_Eliminar_Tipo_Equipo.getId_tipo_equipo_JTextField().getText());
+        tipo_Equipo.setId_Tipo_Equipo(jPanel_Eliminar_Tipo_Equipo.getId_tipo_equipo_JTextField().getText());
         tipo_Equipo.setDescripcion(jPanel_Eliminar_Tipo_Equipo.getDescripcion_JTextArea().getText());
         
         Tipo_EquipoDAO tDAO= new Tipo_EquipoDAO();

@@ -11,13 +11,13 @@ package modelo.tipo_equipo;
  */
 public class Tipo_EquipoDTO {
     
-    private String id_rol;
+    private String id_tipo_equipo;
     private String descripcion;
 
     public Tipo_EquipoDTO(){}
     
     public Tipo_EquipoDTO(Tipo_Equipo tipo_Equipo) {
-        this.id_rol = tipo_Equipo.getId_rol();
+        this.id_tipo_equipo = tipo_Equipo.getId_Tipo_Equipo();
         this.descripcion = tipo_Equipo.getDescripcion();
     }
 
@@ -40,21 +40,21 @@ public class Tipo_EquipoDTO {
     }
 
     /**
-     * Get the value of id_rol
+     * Get the value of id_tipo_equipo
      *
-     * @return the value of id_rol
+     * @return the value of id_tipo_equipo
      */
-    public String getId_rol() {
-        return id_rol;
+    public String getId_Tipo_Equipo() {
+        return id_tipo_equipo;
     }
 
     /**
-     * Set the value of id_rol
+     * Set the value of id_tipo_equipo
      *
-     * @param id_rol new value of id_rol
+     * @param id_tipo_equipo new value of id_tipo_equipo
      */
-    public void setId_rol(String id_rol) {
-        this.id_rol = id_rol;
+    public void setId_Tipo_Equipo(String id_tipo_equipo) {
+        this.id_tipo_equipo = id_tipo_equipo;
     }
 
 }
