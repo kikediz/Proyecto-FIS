@@ -25,7 +25,7 @@ import modelo.Conexion;
 public class EquipoDAO implements CRUD<EquipoDTO> {
 
     private static final String SQL_INSERT="insert into PERSONA (cedula,nombre,correo)values (?,?,?)";
-    private static final String SQL_DELETE="delete from PERSONA where cedula=?";
+    private static final String SQL_DELETE="delete from equipo where id_equipo=?";
     private static final String SQL_UPDATE="update equipo set id_equipo=?,id_sala=?,fk_tipo_equipo_id_tipo_equipo=?,modelo=?,fk_marca_id_marca=?  where id_equipo=?";
     private static final String SQL_READ="select * from PERSONA where cedula=?";
     private static final String SQL_READALL="select * from sala";   
@@ -57,7 +57,7 @@ public class EquipoDAO implements CRUD<EquipoDTO> {
         
         try {
             ps=con.getCnn().prepareStatement(SQL_DELETE);
-            ps.setInt(1,equipoDTO.getId_sala());
+            ps.setString(1,equipoDTO.getId_equipo());
             if(ps.executeUpdate()>0){return true;}
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);

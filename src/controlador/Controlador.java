@@ -60,14 +60,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.NumberFormat;
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,8 +71,6 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import vista.JFrame_Formulario;
-import modelo.*;
-import sun.util.calendar.LocalGregorianCalendar;
 import vista.Agregar_Pestana;
 import vista.creditos.JPanel_Acerca_de;
 import vista.creditos.JPanel_Ayuda;
@@ -1282,10 +1275,10 @@ public class Controlador{
     public void actionEliminarEquipo(ActionEvent ae) {       
         Equipo equipo = new Equipo();
         equipo.setId_equipo(jPanel_Eliminar_Equipo.getId_equipo_JTextField().getText());
-        equipo.setId_sala(Integer.parseInt(jPanel_Eliminar_Equipo.getId_sala_Choice().getSelectedItem()));
+        equipo.setId_sala(getIdSala(jPanel_Eliminar_Equipo.getId_sala_Choice().getSelectedItem()));
         equipo.setModelo(jPanel_Eliminar_Equipo.getModelo_JTextField().getText());
-        equipo.setId_marca(jPanel_Eliminar_Equipo.getId_marca_Choice().getSelectedItem());
-        equipo.setId_tipo_equipo(jPanel_Eliminar_Equipo.getTipo_equipo_Choice().getSelectedItem());
+        equipo.setId_marca(getIdMarca(jPanel_Eliminar_Equipo.getId_marca_Choice().getSelectedItem()));
+        equipo.setId_tipo_equipo(getIdTipoEquipo(jPanel_Eliminar_Equipo.getTipo_equipo_Choice().getSelectedItem()));
         
         EquipoDAO eDAO= new EquipoDAO();
         
@@ -1307,8 +1300,61 @@ public class Controlador{
             actionEliminarEquipo(e);
             }
         });
+        jPanel_Eliminar_Equipo.getId_equipo_JTextField().addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                actionConsultarEliminarEquipo(e);
+            }
+        });
     }
     
+    
+    private void actionConsultarEliminarEquipo(KeyEvent ae){  
+        if(jPanel_Eliminar_Equipo.getId_equipo_JTextField().getText().length()>0){
+            Equipo equipo = new Equipo();
+            equipo.setId_equipo(jPanel_Eliminar_Equipo.getId_equipo_JTextField().getText());
+
+            EquipoDAO eDAO= new EquipoDAO();
+            EquipoDTO eqDTO = eDAO.read(new EquipoDTO(equipo));
+            if(eqDTO.getId_equipo() != null){
+                String id_sal=""+eqDTO.getId_sala();
+                System.out.println(eqDTO.getId_sala());
+                jPanel_Eliminar_Equipo.getId_sala_Choice().add(getNombreSala(eqDTO.getId_sala()));
+                jPanel_Eliminar_Equipo.getId_sala_Choice().select(getNombreSala(eqDTO.getId_sala()));
+                jPanel_Eliminar_Equipo.getId_sala_JLabel().setText("Id Sala "+eqDTO.getId_sala());
+                jPanel_Eliminar_Equipo.getId_sala_Choice().setEnabled(false);
+                jPanel_Eliminar_Equipo.getTipo_equipo_Choice().add(getDescripcionTipoEquipo(eqDTO.getId_tipo_equipo()));
+                jPanel_Eliminar_Equipo.getTipo_equipo_Choice().select(getDescripcionTipoEquipo(eqDTO.getId_tipo_equipo()));
+                jPanel_Eliminar_Equipo.getTipo_equipo_JLabel().setText("Id Tipo"+ eqDTO.getId_tipo_equipo());
+                jPanel_Eliminar_Equipo.getTipo_equipo_Choice().setEnabled(false);
+                jPanel_Eliminar_Equipo.getModelo_JTextField().setText(eqDTO.getModelo());
+                jPanel_Eliminar_Equipo.getModelo_JTextField().setEnabled(false);
+                jPanel_Eliminar_Equipo.getId_marca_Choice().add(getDescripcionMarca(eqDTO.getId_marca()));
+                jPanel_Eliminar_Equipo.getId_marca_Choice().select(getDescripcionMarca(eqDTO.getId_marca()));
+                jPanel_Eliminar_Equipo.getId_marca_Choice().setEnabled(false);
+                jPanel_Eliminar_Equipo.getId_marca_JLabel().setText("Id Marca "+eqDTO.getId_marca());
+                jPanel_Eliminar_Equipo.getExito().setForeground(Color.green);
+                jPanel_Eliminar_Equipo.getExito().setText("Operación exitosa");
+                
+                
+            }
+            else {
+                jPanel_Eliminar_Equipo.getExito().setForeground(Color.red);
+                jPanel_Eliminar_Equipo.getExito().setText("Operacion sin éxito");
+            }
+        }
+    }
     /**
      * fin metodos para las acciones de equipos
      */
