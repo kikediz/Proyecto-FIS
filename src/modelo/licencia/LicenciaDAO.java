@@ -7,6 +7,7 @@ package modelo.licencia;
 
 
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ public class LicenciaDAO implements CRUD<LicenciaDTO> {
 
     private static final String SQL_INSERT="insert into PERSONA (cedula,nombre,correo)values (?,?,?)";
     private static final String SQL_DELETE="delete from PERSONA where cedula=?";
-    private static final String SQL_UPDATE="update licencia set producto=?,cantidad_actual=?,cupo=?,fecha_expiraccion=?  where id_licencia=?";
+    private static final String SQL_UPDATE="update licencia set id_licencia=?,producto=?,cantidad_actual=?,cupo=?,fecha_expiraccion=?  where id_licencia=?";
     private static final String SQL_READ="select * from PERSONA where cedula=?";
     private static final String SQL_READALL="select * from PERSONA";
     private static final String SQL_READ_ID="select * from licencia where id_licencia=?";  
@@ -70,11 +71,12 @@ public class LicenciaDAO implements CRUD<LicenciaDTO> {
     public boolean update(LicenciaDTO licenciaDTO) {
      try {
             ps=con.getCnn().prepareStatement(SQL_UPDATE);
-            ps.setString(1,licenciaDTO.getProducto());
-            ps.setInt(2,licenciaDTO.getCantidad_actual());
-            ps.setInt(3,licenciaDTO.getCupo());
-            ps.setString(4,licenciaDTO.getFecha_expiraccion());
-            ps.setString(5, licenciaDTO.getId_licencia());
+            ps.setString(1,licenciaDTO.getId_licencia());
+            ps.setString(2,licenciaDTO.getProducto());
+            ps.setInt(3,licenciaDTO.getCantidad_actual());
+            ps.setInt(4,licenciaDTO.getCupo());
+            ps.setDate(5, Date.valueOf((licenciaDTO.getFecha_expiraccion()).toString()));
+            ps.setString(6, licenciaDTO.getId_licencia());
             if(ps.executeUpdate()>0){return true;}
         } catch (SQLException ex) {
             Logger.getLogger(LicenciaDAO.class.getName()).log(Level.SEVERE, null, ex);

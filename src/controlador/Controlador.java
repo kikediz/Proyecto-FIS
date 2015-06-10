@@ -1602,7 +1602,9 @@ public class Controlador{
         licencia.setProducto(jPanel_Actualizar_Licencia.getProducto_JTextField().getText());
         licencia.setCantidad_actual(Integer.parseInt(jPanel_Actualizar_Licencia.getCantidad_actual_JTextField().getText()));
         licencia.setCupo(Integer.parseInt(jPanel_Actualizar_Licencia.getCupo_JTextField().getText()));
-        licencia.setFecha_expiraccion((jPanel_Actualizar_Licencia.getFecha_expiracion_JCalendar().getDate()).toString());
+        //licencia.setFecha_expiraccion((jPanel_Actualizar_Licencia.getFecha_expiracion_JCalendar().getDate()).toString());
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        licencia.setFecha_expiraccion(jPanel_Actualizar_Licencia.getFecha_expiracion_JCalendar().getDate().toString());
         
         LicenciaDAO lDAO= new LicenciaDAO();
         
