@@ -1212,10 +1212,10 @@ public class Controlador{
     public void actionAgregarEquipo(ActionEvent ae) {       
         Equipo equipo = new Equipo();
         equipo.setId_equipo(jPanel_Agregar_Equipo.getId_equipo_JTextField().getText());
-        equipo.setId_sala(Integer.parseInt(jPanel_Agregar_Equipo.getId_sala_Choice().getSelectedItem()));
+        equipo.setId_sala(getIdSala(jPanel_Agregar_Equipo.getId_sala_Choice().getSelectedItem()));
         equipo.setModelo(jPanel_Agregar_Equipo.getModelo_JTextField().getText());
-        equipo.setId_marca(jPanel_Agregar_Equipo.getId_marca_Choice().getSelectedItem());
-        equipo.setId_tipo_equipo(jPanel_Agregar_Equipo.getTipo_equipo_Choice().getSelectedItem());
+        equipo.setId_marca(getIdMarca(jPanel_Agregar_Equipo.getId_marca_Choice().getSelectedItem()));
+        equipo.setId_tipo_equipo(getIdTipoEquipo(jPanel_Agregar_Equipo.getTipo_equipo_Choice().getSelectedItem()));
         
         EquipoDAO eDAO= new EquipoDAO();
         
@@ -1230,11 +1230,210 @@ public class Controlador{
         }
     }
     
+    private void actionConsultarAgregarEquipo(KeyEvent ae){  
+        if(jPanel_Agregar_Equipo.getId_equipo_JTextField().getText().length()>0){
+            Equipo equipo = new Equipo();
+            equipo.setId_equipo(jPanel_Agregar_Equipo.getId_equipo_JTextField().getText());
+
+            EquipoDAO eDAO= new EquipoDAO();
+            EquipoDTO eqDTO = eDAO.read(new EquipoDTO(equipo));
+            if(eqDTO.getId_equipo() != null){
+                String id_sal=""+eqDTO.getId_sala();
+                System.out.println(eqDTO.getId_sala());
+                jPanel_Agregar_Equipo.getId_sala_Choice().add(getNombreSala(eqDTO.getId_sala()));
+                jPanel_Agregar_Equipo.getId_sala_Choice().select(getNombreSala(eqDTO.getId_sala()));
+                jPanel_Agregar_Equipo.getId_sala_JLabel().setText("Id Sala "+eqDTO.getId_sala());
+                jPanel_Agregar_Equipo.getTipo_equipo_Choice().add(getDescripcionTipoEquipo(eqDTO.getId_tipo_equipo()));
+                jPanel_Agregar_Equipo.getTipo_equipo_Choice().select(getDescripcionTipoEquipo(eqDTO.getId_tipo_equipo()));
+                jPanel_Agregar_Equipo.getTipo_equipo_JLabel().setText("Id Tipo"+ eqDTO.getId_tipo_equipo());
+                jPanel_Agregar_Equipo.getModelo_JTextField().setText(eqDTO.getModelo());
+                jPanel_Agregar_Equipo.getId_marca_Choice().add(getDescripcionMarca(eqDTO.getId_marca()));
+                jPanel_Agregar_Equipo.getId_marca_Choice().select(getDescripcionMarca(eqDTO.getId_marca()));
+                jPanel_Agregar_Equipo.getId_marca_JLabel().setText("Id Marca "+eqDTO.getId_marca());
+                jPanel_Agregar_Equipo.getExito().setForeground(Color.green);
+                jPanel_Agregar_Equipo.getExito().setText("Operación exitosa");
+                
+                
+            }
+            else {
+                jPanel_Agregar_Equipo.getExito().setForeground(Color.red);
+                jPanel_Agregar_Equipo.getExito().setText("Operacion sin éxito");
+            }
+        }
+    }
+    
     private void accionAgregarPanelEquipo() {
         jPanel_Agregar_Equipo.getActualizar_JButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             actionAgregarEquipo(e);
+            }
+        });
+        jPanel_Agregar_Equipo.getId_equipo_JTextField().addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                actionConsultarAgregarEquipo(e);
+            }
+        });
+        jPanel_Agregar_Equipo.getId_sala_Choice().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Sala sala = new Sala();
+                SalaDAO sDAO= new SalaDAO();
+                List<SalaDTO> sDTO = sDAO.readAll();
+                jPanel_Agregar_Equipo.getId_sala_Choice().removeAll();
+                jPanel_Agregar_Equipo.getId_sala_Choice().add("Sala");
+                for(int i=0;i<sDTO.size();i++){
+                    jPanel_Agregar_Equipo.getId_sala_Choice().add(sDTO.get(i).getNombre());
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        jPanel_Agregar_Equipo.getId_sala_Choice().addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                jPanel_Agregar_Equipo.getId_sala_JLabel().setText("Id Sala: "+getIdSala(e.getItem().toString()));
+            }
+        });
+        jPanel_Agregar_Equipo.getTipo_equipo_Choice().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Tipo_Equipo tipo_Equipo = new Tipo_Equipo();
+                Tipo_EquipoDAO tipo_EquipoDAO= new Tipo_EquipoDAO();
+                List<Tipo_EquipoDTO> teDTO = tipo_EquipoDAO.readAll();
+                jPanel_Agregar_Equipo.getTipo_equipo_Choice().removeAll();
+                jPanel_Agregar_Equipo.getTipo_equipo_Choice().add("Tipo Equipo");
+                for(int i=0;i<teDTO.size();i++){
+                    jPanel_Agregar_Equipo.getTipo_equipo_Choice().add(teDTO.get(i).getDescripcion());
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+        jPanel_Agregar_Equipo.getTipo_equipo_Choice().addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                jPanel_Agregar_Equipo.getTipo_equipo_JLabel().setText("Id Tipo: "+getIdTipoEquipo(e.getItem().toString()));
+            }
+        });
+        jPanel_Agregar_Equipo.getModelo_JTextField().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                jPanel_Agregar_Equipo.getModelo_JTextField().setText("");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+        jPanel_Agregar_Equipo.getId_marca_Choice().addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Marca marca = new Marca();
+                MarcaDAO marcaDAO= new MarcaDAO();
+                List<MarcaDTO> mDTO = marcaDAO.readAll();
+                jPanel_Agregar_Equipo.getId_marca_Choice().removeAll();
+                jPanel_Agregar_Equipo.getId_marca_Choice().add("Marca");
+                for(int i=0;i<mDTO.size();i++){
+                    jPanel_Agregar_Equipo.getId_marca_Choice().add(getDescripcionMarca(mDTO.get(i).getId_marca()));
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+        jPanel_Agregar_Equipo.getId_marca_Choice().addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                jPanel_Agregar_Equipo.getId_marca_JLabel().setText("Id Marca: "+getIdMarca(e.getItem().toString()));
             }
         });
     }
