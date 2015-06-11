@@ -119,6 +119,12 @@ public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
         });
     }
 
+    public String getFecha(){
+        return fecha_instalacion_JCalendar.getCalendar ().get ( Calendar.YEAR )+"-"+
+               (fecha_instalacion_JCalendar.getCalendar ().get ( Calendar.MONTH )+1)+"-"+
+               fecha_instalacion_JCalendar.getCalendar ().get ( Calendar.DAY_OF_MONTH );
+    }
+    
     public JLabel getId_licencia_JLabel() {
         return id_licencia_JLabel;
     }

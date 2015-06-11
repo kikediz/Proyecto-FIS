@@ -5,130 +5,50 @@
  */
 package controlador;
 
-import modelo.login.LoginDAO;
-import modelo.login.Login;
-import modelo.login.LoginDTO;
-import modelo.licencia.LicenciaDAO;
-import modelo.licencia.Licencia;
-import modelo.licencia.LicenciaDTO;
-import modelo.equipo.EquipoDTO;
-import modelo.equipo.EquipoDAO;
-import modelo.equipo.Equipo;
-import modelo.licencia_equipo.Licencia_EquipoDAO;
-import modelo.licencia_equipo.Licencia_EquipoDTO;
-import modelo.licencia_equipo.Licencia_Equipo;
-import modelo.mantenimiento.MantenimientoDTO;
-import modelo.mantenimiento.Mantenimiento;
-import modelo.mantenimiento.MantenimientoDAO;
-import modelo.equipo_mantenimiento.Equipo_Mantenimiento;
-import modelo.equipo_mantenimiento.Equipo_MantenimientoDAO;
-import modelo.equipo_mantenimiento.Equipo_MantenimientoDTO;
-import modelo.persona.PersonaDAO;
-import modelo.persona.PersonaDTO;
-import modelo.persona.Persona;
-import modelo.marca.MarcaDTO;
-import modelo.marca.MarcaDAO;
-import modelo.marca.Marca;
-import modelo.rol.RolDTO;
-import modelo.rol.Rol;
-import modelo.rol.RolDAO;
-import modelo.rol_persona.Rol_PersonaDTO;
-import modelo.rol_persona.Rol_Persona;
-import modelo.rol_persona.Rol_PersonaDAO;
-import modelo.sala.SalaDAO;
-import modelo.sala.Sala;
-import modelo.sala.SalaDTO;
-import modelo.sede.Sede;
-import modelo.sede.SedeDTO;
-import modelo.sede.SedeDAO;
-import modelo.tipo_equipo.Tipo_Equipo;
-import modelo.tipo_equipo.Tipo_EquipoDTO;
-import modelo.tipo_equipo.Tipo_EquipoDAO;
-import modelo.administra.Administra;
-import modelo.administra.AdministraDTO;
-import modelo.administra.AdministraDAO;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import vista.JFrame_Formulario;
-import vista.Agregar_Pestana;
-import vista.creditos.JPanel_Acerca_de;
-import vista.creditos.JPanel_Ayuda;
-
-import vista.consulta.JPanel_Consulta_Administrador;
-import vista.consulta.JPanel_Consulta_Auxiliar;
-import vista.consulta.JPanel_Consulta_Especializada;
-import vista.consulta.JPanel_Consulta_Monitor;
-
-import vista.JPanel_Login;
-import vista.prestamo.JPanel_Prestar_Equipo;
-import vista.reporte.JPanel_Reporte;
-import vista.consulta.JPanel_consultar_Persona;
-
-import vista.administra.JPanel_Actualizar_Administrador;
-import vista.equipo.JPanel_Actualizar_Equipo;
-import vista.licencia.JPanel_Actualizar_Licencia;
-import vista.licencia_equipo.JPanel_Actualizar_Licencia_Equipo;
-import vista.mantenimiento.JPanel_Actualizar_Mantenimiento;
-import vista.mantenimiento_equipo.JPanel_Actualizar_Mantenimiento_a_Equipo;
-import vista.marca.JPanel_Actualizar_Marca_Equipo;
-import vista.persona.JPanel_Actualizar_Persona;
-import vista.rol.JPanel_Actualizar_Rol;
-import vista.rol_persona.JPanel_Actualizar_Rol_a_Persona;
-import vista.sala.JPanel_Actualizar_Sala;
-import vista.sede.JPanel_Actualizar_Sede;
-import vista.tipo_equipo.JPanel_Actualizar_Tipo_Equipo;
-
-import vista.administra.JPanel_Agregar_Administrador;
-import vista.equipo.JPanel_Agregar_Equipo;
-import vista.licencia.JPanel_Agregar_Licencia;
-import vista.licencia_equipo.JPanel_Agregar_Licencia_Equipo;
-import vista.mantenimiento.JPanel_Agregar_Mantenimiento;
-import vista.mantenimiento_equipo.JPanel_Agregar_Mantenimiento_a_Equipo;
-import vista.marca.JPanel_Agregar_Marca_Equipo;
-import vista.persona.JPanel_Agregar_Persona;
-import vista.rol.JPanel_Agregar_Rol;
-import vista.rol_persona.JPanel_Agregar_Rol_a_Persona;
-import vista.sala.JPanel_Agregar_Sala;
-import vista.sede.JPanel_Agregar_Sede;
-import vista.tipo_equipo.JPanel_Agregar_Tipo_Equipo;
-
-import vista.administra.JPanel_Eliminar_Administrador;
-import vista.equipo.JPanel_Eliminar_Equipo;
-import vista.licencia.JPanel_Eliminar_Licencia;
-import vista.licencia_equipo.JPanel_Eliminar_Licencia_Equipo;
-import vista.mantenimiento.JPanel_Eliminar_Mantenimiento;
-import vista.mantenimiento_equipo.JPanel_Eliminar_Mantenimiento_a_Equipo;
-import vista.marca.JPanel_Eliminar_Marca_Equipo;
-import vista.persona.JPanel_Eliminar_Persona;
-import vista.rol.JPanel_Eliminar_Rol;
-import vista.rol_persona.JPanel_Eliminar_Rol_a_Persona;
-import vista.sala.JPanel_Eliminar_Sala;
-import vista.sede.JPanel_Eliminar_Sede;
-import vista.tipo_equipo.JPanel_Eliminar_Tipo_Equipo;
-
-
-import vista.TabButton;
+import modelo.administra.*;
+import modelo.equipo.*;
+import modelo.equipo_mantenimiento.*;
+import modelo.licencia.*;
+import modelo.licencia_equipo.*;
+import modelo.login.*;
+import modelo.mantenimiento.*;
+import modelo.marca.*;
+import modelo.persona.*;
+import modelo.rol.*;
+import modelo.rol_persona.*;
+import modelo.sala.*;
+import modelo.sede.*;
+import modelo.tipo_equipo.*;
+import vista.*;
+import vista.administra.*;
+import vista.consulta.*;
+import vista.creditos.*;
+import vista.equipo.*;
+import vista.licencia.*;
+import vista.licencia_equipo.*;
+import vista.mantenimiento.*;
+import vista.mantenimiento_equipo.*;
+import vista.marca.*;
+import vista.persona.*;
+import vista.prestamo.*;
+import vista.reporte.*;
+import vista.rol.*;
+import vista.rol_persona.*;
+import vista.sala.*;
+import vista.sede.*;
+import vista.tipo_equipo.*;
 /**
  *
  * @author Maximiliano
@@ -212,7 +132,7 @@ public class Controlador{
         //actionActualizar_Equipo();
         //actionActualizar_Administrador();
         //actionActualizar_Licencia();
-        actionActualizar_Licencia_Equipo();
+        actionActualizar_Licencia ();
     }
     
     public void iniciarVista() {
@@ -1562,16 +1482,18 @@ public class Controlador{
     /**
      * inicio metodos para las acciones de licencia
      */
-
+    JScrollPane jsp;
     private void actionActualizar_Licencia(){
-        if(jPanel_Actualizar_Licencia==null){
+        if(jsp==null){
+            jsp = new JScrollPane ();
             jPanel_Actualizar_Licencia = new JPanel_Actualizar_Licencia();
-            formulario.getPanelTabbedPane().addTab("Actualizar Licencia", null, jPanel_Actualizar_Licencia, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jsp.setViewportView ( jPanel_Actualizar_Licencia );
+            formulario.getPanelTabbedPane().addTab("Actualizar Licencia", null, jsp, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Licencia);
+            formulario.getPanelTabbedPane().setSelectedComponent(jsp);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1579,7 +1501,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Licencia=null;
+                        jsp=null;
                         System.gc();
                     }
                 }
@@ -1588,9 +1510,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Licencia); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jsp); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Licencia=null;
+                jsp=null;
                 accionActualizarPanelLicencia();
             }
         }
@@ -1724,7 +1646,7 @@ public class Controlador{
         licencia.setProducto(jPanel_Agregar_Licencia.getProducto_JTextField().getText());
         licencia.setCantidad_actual(Integer.parseInt(jPanel_Agregar_Licencia.getCantidad_actual_JTextField().getText()));
         licencia.setCupo(Integer.parseInt(jPanel_Agregar_Licencia.getCupo_JTextField().getText()));
-        licencia.setFecha_expiraccion((jPanel_Agregar_Licencia.getFecha_expiracion_JCalendar().getDate()).toString());
+        licencia.setFecha_expiraccion(jPanel_Agregar_Licencia.getFecha());
         
         LicenciaDAO lDAO= new LicenciaDAO();
         
@@ -1807,6 +1729,23 @@ public class Controlador{
             @Override
             public void actionPerformed(ActionEvent e) {
             actionEliminarLicencia(e);
+            }
+        });
+        jPanel_Eliminar_Licencia.getId_licencia_JTextField().addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
             }
         });
     }

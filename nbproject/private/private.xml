@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/controlador/Main.java</file>
-            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/vista/licencia/JPanel_Actualizar_Licencia.java</file>
-            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/controlador/Controlador.java</file>
-            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/mantenimiento/MantenimientoDAO.java</file>
-            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/vista/mantenimiento/JPanel_Actualizar_Mantenimiento.java</file>
-            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/marca/MarcaDAO.java</file>
-            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/mantenimiento/Mantenimiento.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/vista/licencia/JPanel_Agregar_Licencia.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/licencia/LicenciaDAO.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/equipo_mantenimiento/Equipo_Mantenimiento.java</file>
         </group>
     </open-files>
 </project-private>

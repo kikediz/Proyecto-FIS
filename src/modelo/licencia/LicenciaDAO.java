@@ -25,8 +25,8 @@ import modelo.Conexion;
  */
 public class LicenciaDAO implements CRUD<LicenciaDTO> {
 
-    private static final String SQL_INSERT="insert into PERSONA (cedula,nombre,correo)values (?,?,?)";
-    private static final String SQL_DELETE="delete from PERSONA where cedula=?";
+    private static final String SQL_INSERT="insert into licencia (id_licencia,producto,cantidad_actual,cupo,fecha_expiraccion)values (?,?,?,?,?)";
+    private static final String SQL_DELETE="delete from licencia where id_licencia=?";
     private static final String SQL_UPDATE="update licencia set id_licencia=?,producto=?,cantidad_actual=?,cupo=?,fecha_expiraccion=?  where id_licencia=?";
     private static final String SQL_READ="select * from PERSONA where cedula=?";
     private static final String SQL_READALL="select * from PERSONA";
@@ -40,9 +40,11 @@ public class LicenciaDAO implements CRUD<LicenciaDTO> {
     public boolean crear(LicenciaDTO licenciaDTO) {
         try {
             ps=con.getCnn().prepareStatement(SQL_INSERT);
-            ps.setInt(1,licenciaDTO.getCantidad_actual());
-            ps.setString(2,licenciaDTO.getFecha_expiraccion());
-            ps.setString(3, licenciaDTO.getId_licencia());
+            ps.setString(1,licenciaDTO.getId_licencia());
+            ps.setString(2,licenciaDTO.getProducto());
+            ps.setInt(3, licenciaDTO.getCantidad_actual());
+            ps.setInt(4, licenciaDTO.getCupo());
+            ps.setDate(5, Date.valueOf((licenciaDTO.getFecha_expiraccion())));
             
             if(ps.executeUpdate()>0){return true;}
             
@@ -59,7 +61,7 @@ public class LicenciaDAO implements CRUD<LicenciaDTO> {
         
         try {
             ps=con.getCnn().prepareStatement(SQL_DELETE);
-            ps.setInt(1,licenciaDTO.getCantidad_actual());
+            ps.setString(1,licenciaDTO.getId_licencia());
             if(ps.executeUpdate()>0){return true;}
         } catch (SQLException ex) {
             Logger.getLogger(LicenciaDAO.class.getName()).log(Level.SEVERE, null, ex);
