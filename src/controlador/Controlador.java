@@ -52,6 +52,9 @@ import modelo.marca.MarcaDTO;
 import modelo.persona.Persona;
 import modelo.persona.PersonaDAO;
 import modelo.persona.PersonaDTO;
+import modelo.reporte.Reporte;
+import modelo.reporte.ReporteDAO;
+import modelo.reporte.ReporteDTO;
 import modelo.rol.Rol;
 import modelo.rol.RolDAO;
 import modelo.rol.RolDTO;
@@ -196,6 +199,59 @@ public class Controlador{
     private JPanel_Eliminar_Tipo_Equipo jPanel_Eliminar_Tipo_Equipo;
     
     private JScrollPane jspActualizar_Licencia;
+    private JScrollPane jspjPanel_Acerca_de;
+    private JScrollPane jspjPanel_Ayuda;
+    private JScrollPane jspjPanel_Consulta_Administrador;
+    private JScrollPane jspjPanel_Consulta_Auxiliar;
+    private JScrollPane jspjPanel_Consulta_Especializada;
+    private JScrollPane jspjPanel_Consulta_Monitor;
+    private JScrollPane jspjPanel_Login;
+    private JScrollPane jspjPanel_Prestar_Equipo;
+    private JScrollPane jspjPanel_Reporte;
+    private JScrollPane jspjPanel_consultar_Persona;
+    
+    private JScrollPane jspjPanel_Actualizar_Administrador;
+    private JScrollPane jspjPanel_Actualizar_Equipo;
+    private JScrollPane jspjPanel_Actualizar_Licencia;
+    private JScrollPane jspjPanel_Actualizar_Licencia_Equipo;
+    private JScrollPane jspjPanel_Actualizar_Mantenimiento;
+    private JScrollPane jspjPanel_Actualizar_Mantenimiento_a_Equipo;
+    private JScrollPane jspjPanel_Actualizar_Marca_Equipo;
+    private JScrollPane jspjPanel_Actualizar_Persona;
+    private JScrollPane jspjPanel_Actualizar_Rol;
+    private JScrollPane jspjPanel_Actualizar_Rol_a_Persona;
+    private JScrollPane jspjPanel_Actualizar_Sala;
+    private JScrollPane jspjPanel_Actualizar_Sede;
+    private JScrollPane jspjPanel_Actualizar_Tipo_Equipo;
+    
+    private JScrollPane jspjPanel_Agregar_Administrador;
+    private JScrollPane jspjPanel_Agregar_Equipo;
+    private JScrollPane jspjPanel_Agregar_Licencia;
+    private JScrollPane jspjPanel_Agregar_Licencia_Equipo;
+    private JScrollPane jspjPanel_Agregar_Mantenimiento;
+    private JScrollPane jspjPanel_Agregar_Mantenimiento_a_Equipo;
+    private JScrollPane jspjPanel_Agregar_Marca_Equipo;
+    private JScrollPane jspjPanel_Agregar_Persona;
+    private JScrollPane jspjPanel_Agregar_Rol;
+    private JScrollPane jspjPanel_Agregar_Rol_a_Persona;
+    private JScrollPane jspjPanel_Agregar_Sala;
+    private JScrollPane jspjPanel_Agregar_Sede;
+    private JScrollPane jspjPanel_Agregar_Tipo_Equipo;
+    
+    private JScrollPane jspjPanel_Eliminar_Administrador;
+    private JScrollPane jspjPanel_Eliminar_Equipo;
+    private JScrollPane jspjPanel_Eliminar_Licencia;
+    private JScrollPane jspjPanel_Eliminar_Licencia_Equipo;
+    private JScrollPane jspjPanel_Eliminar_Mantenimiento;
+    private JScrollPane jspjPanel_Eliminar_Mantenimiento_a_Equipo;
+    private JScrollPane jspjPanel_Eliminar_Marca_Equipo;
+    private JScrollPane jspjPanel_Eliminar_Persona;
+    private JScrollPane jspjPanel_Eliminar_Rol;
+    private JScrollPane jspjPanel_Eliminar_Rol_a_Persona;
+    private JScrollPane jspjPanel_Eliminar_Sala;
+    private JScrollPane jspjPanel_Eliminar_Sede;
+    private JScrollPane jspjPanel_Eliminar_Tipo_Equipo;
+    
     
     public Controlador(JPanel_Login logginPanel, JFrame_Formulario view){
         this.jPanel_Login = logginPanel;
@@ -592,14 +648,17 @@ public class Controlador{
      */
     
     private void actionActualizar_Administrador(){
-        if(jPanel_Actualizar_Administrador==null){
+        
+        if(jspjPanel_Actualizar_Administrador==null){
+            jspjPanel_Actualizar_Administrador = new JScrollPane ();
             jPanel_Actualizar_Administrador = new JPanel_Actualizar_Administrador();
-            formulario.getPanelTabbedPane().addTab("Actualizar Prestamo", null, jPanel_Actualizar_Administrador, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Administrador.setViewportView ( jPanel_Actualizar_Administrador );
+            formulario.getPanelTabbedPane().addTab("Actualizar Prestamo", null, jspjPanel_Actualizar_Administrador, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Administrador);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Administrador);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -616,9 +675,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Administrador); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Administrador); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Administrador=null;
+                jspjPanel_Actualizar_Administrador=null;
                 accionActualizarPanelAdministrador();
             }
         }
@@ -695,14 +754,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Administrador(){
-        if(jPanel_Agregar_Administrador==null){
+        if(jspjPanel_Agregar_Administrador==null){
             jPanel_Agregar_Administrador = new JPanel_Agregar_Administrador();
-            formulario.getPanelTabbedPane().addTab("Prestamo", null, jPanel_Agregar_Administrador, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Administrador =  new  JScrollPane ();
+            jspjPanel_Agregar_Administrador.setViewportView ( jPanel_Agregar_Administrador );
+            formulario.getPanelTabbedPane().addTab("Prestamo", null, jspjPanel_Agregar_Administrador, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Administrador);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Administrador);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -719,9 +780,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Administrador); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Administrador); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Administrador=null;
+                jspjPanel_Agregar_Administrador=null;
                 accionAgregarPanelAdministrador();
             }
         }
@@ -757,14 +818,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Administrador(){
-        if(jPanel_Eliminar_Administrador==null){
+        if(jspjPanel_Eliminar_Administrador==null){
+            jspjPanel_Eliminar_Administrador=new JScrollPane();
             jPanel_Eliminar_Administrador = new JPanel_Eliminar_Administrador();
-            formulario.getPanelTabbedPane().addTab("Prestamo", null, jPanel_Eliminar_Administrador, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Administrador.setViewportView ( jPanel_Eliminar_Administrador );
+            formulario.getPanelTabbedPane().addTab("Prestamo", null, jspjPanel_Eliminar_Administrador, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Administrador);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Administrador);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -772,7 +835,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Administrador=null;
+                        jspjPanel_Eliminar_Administrador=null;
                         System.gc();
                     }
                 }
@@ -781,9 +844,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Administrador); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Administrador); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Administrador=null;
+                jspjPanel_Eliminar_Administrador=null;
                 accionEliminarPanelAdministrador();
             }
         }
@@ -827,14 +890,16 @@ public class Controlador{
      * inicio metodos para las acciones de equipos
      */
     private void actionActualizar_Equipo(){
-        if(jPanel_Actualizar_Equipo==null){
+        if(jspjPanel_Actualizar_Equipo==null){
+            jspjPanel_Actualizar_Equipo=new JScrollPane ();
             jPanel_Actualizar_Equipo = new JPanel_Actualizar_Equipo();
-            formulario.getPanelTabbedPane().addTab("Actualizar Equipo", null, jPanel_Actualizar_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Equipo.setViewportView ( jPanel_Actualizar_Equipo );
+            formulario.getPanelTabbedPane().addTab("Actualizar Equipo", null, jspjPanel_Actualizar_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -842,7 +907,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Equipo=null;
+                        jspjPanel_Actualizar_Equipo=null;
                         System.gc();
                     }
                 }
@@ -851,9 +916,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Equipo=null;
+                jspjPanel_Actualizar_Equipo=null;
                 accionActualizarPanelEquipo();
             }
         }
@@ -1169,14 +1234,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Equipo(){
-        if(jPanel_Agregar_Equipo==null){
+        if(jspjPanel_Agregar_Equipo==null){
+            jspjPanel_Agregar_Equipo =new JScrollPane ();
             jPanel_Agregar_Equipo = new JPanel_Agregar_Equipo();
-            formulario.getPanelTabbedPane().addTab("Equipo", null, jPanel_Agregar_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Equipo.setViewportView(jPanel_Agregar_Equipo);
+            formulario.getPanelTabbedPane().addTab("Equipo", null, jspjPanel_Agregar_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1184,7 +1251,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Equipo=null;
+                        jspjPanel_Agregar_Equipo=null;
                         System.gc();
                     }
                 }
@@ -1193,9 +1260,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Equipo=null;
+                jspjPanel_Agregar_Equipo=null;
                 accionAgregarPanelEquipo();
             }
         }
@@ -1431,14 +1498,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Equipo(){
-        if(jPanel_Eliminar_Equipo==null){
+        if(jspjPanel_Eliminar_Equipo==null){
+            jspjPanel_Eliminar_Equipo=new JScrollPane ();
             jPanel_Eliminar_Equipo = new JPanel_Eliminar_Equipo();
-            formulario.getPanelTabbedPane().addTab("Equipo", null, jPanel_Eliminar_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Equipo.setViewportView ( jPanel_Eliminar_Equipo );
+            formulario.getPanelTabbedPane().addTab("Equipo", null, jspjPanel_Eliminar_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1446,7 +1515,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Equipo=null;
+                        jspjPanel_Eliminar_Equipo=null;
                         System.gc();
                     }
                 }
@@ -1455,9 +1524,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Equipo=null;
+                jspjPanel_Eliminar_Equipo=null;
                 accionEliminarPanelEquipo();
             }
         }
@@ -1680,14 +1749,16 @@ public class Controlador{
     }
        
     private void actionAgregar_Licencia(){
-        if(jPanel_Agregar_Licencia==null){
+        if(jspjPanel_Agregar_Licencia==null){
+            jspjPanel_Agregar_Licencia=new JScrollPane ();
             jPanel_Agregar_Licencia = new JPanel_Agregar_Licencia();
-            formulario.getPanelTabbedPane().addTab("Licencia", null, jPanel_Agregar_Licencia, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Licencia.setViewportView ( jPanel_Agregar_Licencia );
+            formulario.getPanelTabbedPane().addTab("Licencia", null, jspjPanel_Agregar_Licencia, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Licencia);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Licencia);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1695,7 +1766,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Licencia=null;
+                        jspjPanel_Agregar_Licencia=null;
                         System.gc();
                     }
                 }
@@ -1704,9 +1775,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Licencia); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Licencia); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Licencia=null;
+                jspjPanel_Agregar_Licencia=null;
                 accionAgregarPanelLicencia();
             }
         }
@@ -1743,14 +1814,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Licencia(){
-        if(jPanel_Eliminar_Licencia==null){
+        if(jspjPanel_Eliminar_Licencia==null){
+            jspjPanel_Eliminar_Licencia=new JScrollPane ();
             jPanel_Eliminar_Licencia = new JPanel_Eliminar_Licencia();
-            formulario.getPanelTabbedPane().addTab("Licencia", null, jPanel_Eliminar_Licencia, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Licencia.setViewportView ( jPanel_Eliminar_Licencia );
+            formulario.getPanelTabbedPane().addTab("Licencia", null, jspjPanel_Eliminar_Licencia, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Licencia);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Licencia);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1758,7 +1831,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Licencia=null;
+                        jspjPanel_Eliminar_Licencia=null;
                         System.gc();
                     }
                 }
@@ -1767,9 +1840,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Licencia); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Licencia); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Licencia=null;
+                jspjPanel_Eliminar_Licencia=null;
                 accionEliminarPanelLicencia();
             }
         }
@@ -1870,14 +1943,16 @@ public class Controlador{
      * inicio metodos para las acciones de licencia_equipo
      */
     private void actionActualizar_Licencia_Equipo(){
-        if(jPanel_Actualizar_Licencia_Equipo==null){
+        if(jspjPanel_Actualizar_Licencia_Equipo==null){
+            jspjPanel_Actualizar_Licencia_Equipo=new JScrollPane ();
             jPanel_Actualizar_Licencia_Equipo = new JPanel_Actualizar_Licencia_Equipo();
-            formulario.getPanelTabbedPane().addTab("Tramitar Licencia", null, jPanel_Actualizar_Licencia_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Licencia_Equipo.setViewportView ( jPanel_Actualizar_Licencia_Equipo );
+            formulario.getPanelTabbedPane().addTab("Tramitar Licencia", null, jspjPanel_Actualizar_Licencia_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Licencia_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Licencia_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1885,7 +1960,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Licencia_Equipo=null;
+                        jspjPanel_Actualizar_Licencia_Equipo=null;
                         System.gc();
                     }
                 }
@@ -1894,9 +1969,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Licencia_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Licencia_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Licencia_Equipo=null;
+                jspjPanel_Actualizar_Licencia_Equipo=null;
                 accionActualizarPanelLicenciaEquipo();
             }
         }
@@ -1965,14 +2040,16 @@ public class Controlador{
     }    
     
     private void actionAgregar_Licencia_Equipo(){
-        if(jPanel_Agregar_Licencia_Equipo==null){
+        if(jspjPanel_Agregar_Licencia_Equipo==null){
+            jspjPanel_Agregar_Licencia_Equipo=new JScrollPane ();
             jPanel_Agregar_Licencia_Equipo = new JPanel_Agregar_Licencia_Equipo();
-            formulario.getPanelTabbedPane().addTab("Tramitar Licencia", null, jPanel_Agregar_Licencia_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Licencia_Equipo.setViewportView ( jPanel_Agregar_Licencia_Equipo );
+            formulario.getPanelTabbedPane().addTab("Tramitar Licencia", null, jspjPanel_Agregar_Licencia_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Licencia_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Licencia_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1980,7 +2057,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Licencia_Equipo=null;
+                        jspjPanel_Agregar_Licencia_Equipo=null;
                         System.gc();
                     }
                 }
@@ -1989,9 +2066,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Licencia_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Licencia_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Licencia_Equipo=null;
+                jspjPanel_Agregar_Licencia_Equipo=null;
                 accionAgregarPanelLicenciaEquipo();
             }
         }
@@ -2026,14 +2103,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Licencia_Equipo(){
-        if(jPanel_Eliminar_Licencia_Equipo==null){
+        if(jspjPanel_Eliminar_Licencia_Equipo==null){
+            jspjPanel_Eliminar_Licencia_Equipo=new JScrollPane ();
             jPanel_Eliminar_Licencia_Equipo = new JPanel_Eliminar_Licencia_Equipo();
-            formulario.getPanelTabbedPane().addTab("Tramitar Licencia", null, jPanel_Eliminar_Licencia_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Licencia_Equipo.setViewportView ( jPanel_Eliminar_Licencia_Equipo );
+            formulario.getPanelTabbedPane().addTab("Tramitar Licencia", null, jspjPanel_Eliminar_Licencia_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Licencia_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Licencia_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2041,7 +2120,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Licencia_Equipo=null;
+                        jspjPanel_Eliminar_Licencia_Equipo=null;
                         System.gc();
                     }
                 }
@@ -2050,9 +2129,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Licencia_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Licencia_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Licencia_Equipo=null;
+                jspjPanel_Eliminar_Licencia_Equipo=null;
                 accionEliminarPanelLicenciaEquipo();
             }
         }
@@ -2095,14 +2174,16 @@ public class Controlador{
      */
     
     private void actionActualizarTipoMantenimiento(){
-        if(jPanel_Actualizar_Mantenimiento==null){
+        if(jspjPanel_Actualizar_Mantenimiento==null){
+            jspjPanel_Actualizar_Mantenimiento=new JScrollPane ();
             jPanel_Actualizar_Mantenimiento = new JPanel_Actualizar_Mantenimiento();
-            formulario.getPanelTabbedPane().addTab("Tipo Mantenimiento", null, jPanel_Actualizar_Mantenimiento, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Mantenimiento.setViewportView ( jPanel_Actualizar_Mantenimiento );
+            formulario.getPanelTabbedPane().addTab("Tipo Mantenimiento", null, jspjPanel_Actualizar_Mantenimiento, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Mantenimiento);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Mantenimiento);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2110,7 +2191,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Mantenimiento=null;
+                        jspjPanel_Actualizar_Mantenimiento=null;
                         System.gc();
                     }
                 }
@@ -2119,9 +2200,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Mantenimiento); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Mantenimiento); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Mantenimiento=null;
+                jspjPanel_Actualizar_Mantenimiento=null;
                 accionActualizarPanelTipoMantenimiento();
             }
         }
@@ -2193,14 +2274,16 @@ public class Controlador{
     }
     
     private void actionAgregarTipoMantenimiento(){
-        if(jPanel_Agregar_Mantenimiento==null){
+        if(jspjPanel_Agregar_Mantenimiento==null){
+            jspjPanel_Agregar_Mantenimiento=new JScrollPane ();
             jPanel_Agregar_Mantenimiento = new JPanel_Agregar_Mantenimiento();
-            formulario.getPanelTabbedPane().addTab("Tipo Mantenimiento", null, jPanel_Agregar_Mantenimiento, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Mantenimiento.setViewportView ( jPanel_Agregar_Mantenimiento );
+            formulario.getPanelTabbedPane().addTab("Tipo Mantenimiento", null, jspjPanel_Agregar_Mantenimiento, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Mantenimiento);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Mantenimiento);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2208,7 +2291,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Mantenimiento=null;
+                        jspjPanel_Agregar_Mantenimiento=null;
                         System.gc();
                     }
                 }
@@ -2217,9 +2300,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Mantenimiento); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Mantenimiento); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Mantenimiento=null;
+                jspjPanel_Agregar_Mantenimiento=null;
                 accionAgregarPanelTipoMantenimiento();
             }
         }
@@ -2253,14 +2336,16 @@ public class Controlador{
     }
     
     private void actionEliminarTipoMantenimiento(){
-        if(jPanel_Eliminar_Mantenimiento==null){
+        if(jspjPanel_Eliminar_Mantenimiento==null){
+            jspjPanel_Eliminar_Mantenimiento=new JScrollPane ();
             jPanel_Eliminar_Mantenimiento = new JPanel_Eliminar_Mantenimiento();
-            formulario.getPanelTabbedPane().addTab("Tipo Mantenimiento", null, jPanel_Eliminar_Mantenimiento, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Mantenimiento.setViewportView ( jPanel_Eliminar_Mantenimiento );
+            formulario.getPanelTabbedPane().addTab("Tipo Mantenimiento", null, jspjPanel_Eliminar_Mantenimiento, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Mantenimiento);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Mantenimiento);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2268,7 +2353,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Mantenimiento=null;
+                        jspjPanel_Eliminar_Mantenimiento=null;
                         System.gc();
                     }
                 }
@@ -2277,9 +2362,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Mantenimiento); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Mantenimiento); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Mantenimiento=null;
+                jspjPanel_Eliminar_Mantenimiento=null;
                 accionEliminarPanelTipoMantenimiento();
             }
         }
@@ -2321,14 +2406,16 @@ public class Controlador{
      */
     
     private void actionActualizarMantenimiento(){
-        if(jPanel_Actualizar_Mantenimiento_a_Equipo==null){
+        if(jspjPanel_Actualizar_Mantenimiento_a_Equipo==null){
+            jspjPanel_Actualizar_Mantenimiento_a_Equipo=new JScrollPane ();
             jPanel_Actualizar_Mantenimiento_a_Equipo = new JPanel_Actualizar_Mantenimiento_a_Equipo();
-            formulario.getPanelTabbedPane().addTab("Mantenimiento", null, jPanel_Actualizar_Mantenimiento_a_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Mantenimiento_a_Equipo.setViewportView ( jPanel_Actualizar_Mantenimiento_a_Equipo );
+            formulario.getPanelTabbedPane().addTab("Mantenimiento", null, jspjPanel_Actualizar_Mantenimiento_a_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Mantenimiento_a_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Mantenimiento_a_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2336,7 +2423,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Mantenimiento_a_Equipo=null;
+                        jspjPanel_Actualizar_Mantenimiento_a_Equipo=null;
                         System.gc();
                     }
                 }
@@ -2345,9 +2432,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Mantenimiento_a_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Mantenimiento_a_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Mantenimiento_a_Equipo=null;
+                jspjPanel_Actualizar_Mantenimiento_a_Equipo=null;
                 accionActualizarPanelMantenimiento();
             }
         }
@@ -2383,14 +2470,16 @@ public class Controlador{
     }
     
     private void actionAgregarMantenimiento(){
-        if(jPanel_Agregar_Mantenimiento_a_Equipo==null){
+        if(jspjPanel_Agregar_Mantenimiento_a_Equipo==null){
+            jspjPanel_Agregar_Mantenimiento_a_Equipo=new JScrollPane ();
             jPanel_Agregar_Mantenimiento_a_Equipo = new JPanel_Agregar_Mantenimiento_a_Equipo();
-            formulario.getPanelTabbedPane().addTab("Mantenimiento", null, jPanel_Agregar_Mantenimiento_a_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Mantenimiento_a_Equipo.setViewportView ( jPanel_Agregar_Mantenimiento_a_Equipo );
+            formulario.getPanelTabbedPane().addTab("Mantenimiento", null, jspjPanel_Agregar_Mantenimiento_a_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Mantenimiento_a_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Mantenimiento_a_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2398,7 +2487,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Mantenimiento_a_Equipo=null;
+                        jspjPanel_Agregar_Mantenimiento_a_Equipo=null;
                         System.gc();
                     }
                 }
@@ -2407,9 +2496,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Mantenimiento_a_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Mantenimiento_a_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Mantenimiento_a_Equipo=null;
+                jspjPanel_Agregar_Mantenimiento_a_Equipo=null;
                 accionAgregarPanelMantenimiento();
             }
         }
@@ -2445,14 +2534,15 @@ public class Controlador{
     }
     
     private void actionEliminarMantenimiento(){
-        if(jPanel_Eliminar_Mantenimiento_a_Equipo==null){
+        if(jspjPanel_Eliminar_Mantenimiento_a_Equipo==null){
+            jspjPanel_Eliminar_Mantenimiento_a_Equipo=new JScrollPane ();
             jPanel_Eliminar_Mantenimiento_a_Equipo = new JPanel_Eliminar_Mantenimiento_a_Equipo();
-            formulario.getPanelTabbedPane().addTab("Mantenimiento", null, jPanel_Eliminar_Mantenimiento_a_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            formulario.getPanelTabbedPane().addTab("Mantenimiento", null, jspjPanel_Eliminar_Mantenimiento_a_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Mantenimiento_a_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Mantenimiento_a_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2460,7 +2550,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Mantenimiento_a_Equipo=null;
+                        jspjPanel_Eliminar_Mantenimiento_a_Equipo=null;
                         System.gc();
                     }
                 }
@@ -2469,9 +2559,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Mantenimiento_a_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Mantenimiento_a_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Mantenimiento_a_Equipo=null;
+                jspjPanel_Eliminar_Mantenimiento_a_Equipo=null;
                 accionEliminarPanelMantenimiento();
             }
         }
@@ -2515,14 +2605,16 @@ public class Controlador{
      */
     
     private void actionActualizar_Marca(){
-        if(jPanel_Actualizar_Marca_Equipo==null){
+        if(jspjPanel_Actualizar_Marca_Equipo==null){
             jPanel_Actualizar_Marca_Equipo = new JPanel_Actualizar_Marca_Equipo();
-            formulario.getPanelTabbedPane().addTab("Marca Equipo", null, jPanel_Actualizar_Marca_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Marca_Equipo = new JScrollPane ();
+            jspjPanel_Actualizar_Marca_Equipo.setViewportView ( jPanel_Actualizar_Marca_Equipo );
+            formulario.getPanelTabbedPane().addTab("Marca Equipo", null, jspjPanel_Actualizar_Marca_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Marca_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Marca_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2530,7 +2622,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Marca_Equipo=null;
+                        jspjPanel_Actualizar_Marca_Equipo=null;
                         System.gc();
                     }
                 }
@@ -2539,9 +2631,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Marca_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Marca_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Marca_Equipo=null;
+                jspjPanel_Actualizar_Marca_Equipo=null;
                 accionActualizarPanelMarca();
             }
         }
@@ -2575,14 +2667,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Marca(){
-        if(jPanel_Agregar_Marca_Equipo==null){
+        if(jspjPanel_Agregar_Marca_Equipo==null){
+            jspjPanel_Agregar_Marca_Equipo=new JScrollPane ();
             jPanel_Agregar_Marca_Equipo = new JPanel_Agregar_Marca_Equipo();
-            formulario.getPanelTabbedPane().addTab("Marca Equipo", null, jPanel_Agregar_Marca_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Marca_Equipo.setViewportView ( jPanel_Agregar_Marca_Equipo );
+            formulario.getPanelTabbedPane().addTab("Marca Equipo", null, jspjPanel_Agregar_Marca_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Marca_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Marca_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2590,7 +2684,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Marca_Equipo=null;
+                        jspjPanel_Agregar_Marca_Equipo=null;
                         System.gc();
                     }
                 }
@@ -2599,9 +2693,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Marca_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Marca_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Marca_Equipo=null;
+                jspjPanel_Agregar_Marca_Equipo=null;
                 accionAgregarPanelMarca();
             }
         }
@@ -2635,14 +2729,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Marca(){
-        if(jPanel_Eliminar_Marca_Equipo==null){
+        if(jspjPanel_Eliminar_Marca_Equipo==null){
+            jspjPanel_Eliminar_Marca_Equipo=new JScrollPane ();
             jPanel_Eliminar_Marca_Equipo = new JPanel_Eliminar_Marca_Equipo();
-            formulario.getPanelTabbedPane().addTab("Marca Equipo", null, jPanel_Eliminar_Marca_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Marca_Equipo.setViewportView ( jPanel_Eliminar_Marca_Equipo );
+            formulario.getPanelTabbedPane().addTab("Marca Equipo", null, jspjPanel_Eliminar_Marca_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Marca_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Marca_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2650,7 +2746,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Marca_Equipo=null;
+                        jspjPanel_Eliminar_Marca_Equipo=null;
                         System.gc();
                     }
                 }
@@ -2659,9 +2755,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Marca_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Marca_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Marca_Equipo=null;
+                jspjPanel_Eliminar_Marca_Equipo=null;
                 accionEliminarPanelMarca();
             }
         }
@@ -2702,14 +2798,16 @@ public class Controlador{
      */
     
     private void actionActualizar_Persona(){
-        if(jPanel_Actualizar_Persona==null){
+        if(jspjPanel_Actualizar_Persona==null){
+            jspjPanel_Actualizar_Persona=new JScrollPane ();
             jPanel_Actualizar_Persona = new JPanel_Actualizar_Persona();
-            formulario.getPanelTabbedPane().addTab("Persona", null, jPanel_Actualizar_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Persona.setViewportView ( jPanel_Actualizar_Persona );
+            formulario.getPanelTabbedPane().addTab("Persona", null, jspjPanel_Actualizar_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Persona);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Persona);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2717,7 +2815,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Persona=null;
+                        jspjPanel_Actualizar_Persona=null;
                         System.gc();
                     }
                 }
@@ -2726,9 +2824,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Persona); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Persona); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Persona=null;
+                jspjPanel_Actualizar_Persona=null;
                 accionActualizarPanelPersona();
             }
         }
@@ -2765,14 +2863,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Persona(){
-        if(jPanel_Agregar_Persona==null){
+        if(jspjPanel_Agregar_Persona==null){
+            jspjPanel_Agregar_Persona=new JScrollPane ();
             jPanel_Agregar_Persona = new JPanel_Agregar_Persona();
-            formulario.getPanelTabbedPane().addTab("Persona", null, jPanel_Agregar_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Persona.setViewportView ( jPanel_Agregar_Persona );
+            formulario.getPanelTabbedPane().addTab("Persona", null, jspjPanel_Agregar_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Persona);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Persona);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2780,7 +2880,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Persona=null;
+                        jspjPanel_Agregar_Persona=null;
                         System.gc();
                     }
                 }
@@ -2789,9 +2889,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Persona); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Persona); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Persona=null;
+                jspjPanel_Agregar_Persona=null;
                 accionAgregarPanelPersona();
             }
         }
@@ -2828,14 +2928,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Persona(){
-        if(jPanel_Eliminar_Persona==null){
+        if(jspjPanel_Eliminar_Persona==null){
+            jspjPanel_Eliminar_Persona=new JScrollPane ();
             jPanel_Eliminar_Persona = new JPanel_Eliminar_Persona();
-            formulario.getPanelTabbedPane().addTab("Persona", null, jPanel_Eliminar_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Persona.setViewportView ( jPanel_Eliminar_Persona );
+            formulario.getPanelTabbedPane().addTab("Persona", null, jspjPanel_Eliminar_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Persona);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Persona);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2843,7 +2945,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Persona=null;
+                        jspjPanel_Eliminar_Persona=null;
                         System.gc();
                     }
                 }
@@ -2852,9 +2954,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Persona); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Persona); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Persona=null;
+                jspjPanel_Eliminar_Persona=null;
                 accionEliminarPanelPersona();
             }
         }
@@ -2898,14 +3000,16 @@ public class Controlador{
      */
     
     private void actionActualizar_Rol_a_Persona(){
-        if(jPanel_Actualizar_Rol_a_Persona==null){
+        if(jspjPanel_Actualizar_Rol_a_Persona==null){
+            jspjPanel_Actualizar_Rol_a_Persona=new JScrollPane ();
             jPanel_Actualizar_Rol_a_Persona = new JPanel_Actualizar_Rol_a_Persona();
-            formulario.getPanelTabbedPane().addTab("Otorgar Rol", null, jPanel_Actualizar_Rol_a_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Rol_a_Persona.setViewportView ( jPanel_Actualizar_Rol_a_Persona );
+            formulario.getPanelTabbedPane().addTab("Otorgar Rol", null, jspjPanel_Actualizar_Rol_a_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Rol_a_Persona);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Rol_a_Persona);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2913,7 +3017,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Rol_a_Persona=null;
+                        jspjPanel_Actualizar_Rol_a_Persona=null;
                         System.gc();
                     }
                 }
@@ -2922,9 +3026,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Rol_a_Persona); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Rol_a_Persona); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Rol_a_Persona=null;
+                jspjPanel_Actualizar_Rol_a_Persona=null;
                 accionActualizarPanel_Rol_a_Persona();
             }
         }
@@ -2960,14 +3064,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Rol_a_Persona(){
-        if(jPanel_Agregar_Rol_a_Persona==null){
+        if(jspjPanel_Agregar_Rol_a_Persona==null){
+            jspjPanel_Agregar_Rol_a_Persona=new JScrollPane ();
             jPanel_Agregar_Rol_a_Persona = new JPanel_Agregar_Rol_a_Persona();
-            formulario.getPanelTabbedPane().addTab("Otorgar Rol", null, jPanel_Agregar_Rol_a_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Rol_a_Persona.setViewportView ( jPanel_Agregar_Rol_a_Persona );
+            formulario.getPanelTabbedPane().addTab("Otorgar Rol", null, jspjPanel_Agregar_Rol_a_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Rol_a_Persona);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Rol_a_Persona);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -2975,7 +3081,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Rol_a_Persona=null;
+                        jspjPanel_Agregar_Rol_a_Persona=null;
                         System.gc();
                     }
                 }
@@ -2984,9 +3090,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Rol_a_Persona); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Rol_a_Persona); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Rol_a_Persona=null;
+                jspjPanel_Agregar_Rol_a_Persona=null;
                 accionAgregarPanel_Rol_a_Persona();
             }
         }
@@ -3022,14 +3128,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Rol_a_Persona(){
-        if(jPanel_Eliminar_Rol_a_Persona==null){
+        if(jspjPanel_Eliminar_Rol_a_Persona==null){
+            jspjPanel_Eliminar_Rol_a_Persona=new JScrollPane ();
             jPanel_Eliminar_Rol_a_Persona = new JPanel_Eliminar_Rol_a_Persona();
-            formulario.getPanelTabbedPane().addTab("Otorgar Rol", null, jPanel_Eliminar_Rol_a_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Rol_a_Persona.setViewportView ( jPanel_Eliminar_Rol_a_Persona );
+            formulario.getPanelTabbedPane().addTab("Otorgar Rol", null, jspjPanel_Eliminar_Rol_a_Persona, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Rol_a_Persona);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Rol_a_Persona);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3037,7 +3145,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Rol_a_Persona=null;
+                        jspjPanel_Eliminar_Rol_a_Persona=null;
                         System.gc();
                     }
                 }
@@ -3046,9 +3154,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Rol_a_Persona); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Rol_a_Persona); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Rol_a_Persona=null;
+                jspjPanel_Eliminar_Rol_a_Persona=null;
                 accionEliminarPanel_Rol_a_Persona();
             }
         }
@@ -3092,14 +3200,16 @@ public class Controlador{
      */
     
     private void actionActualizar_Rol(){
-        if(jPanel_Actualizar_Rol==null){
+        if(jspjPanel_Actualizar_Rol==null){
+            jspjPanel_Actualizar_Rol=new JScrollPane ();
             jPanel_Actualizar_Rol = new JPanel_Actualizar_Rol();
-            formulario.getPanelTabbedPane().addTab("Rol", null, jPanel_Actualizar_Rol, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Rol.setViewportView ( jPanel_Actualizar_Rol );
+            formulario.getPanelTabbedPane().addTab("Rol", null, jspjPanel_Actualizar_Rol, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Rol);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Rol);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3107,7 +3217,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Rol=null;
+                        jspjPanel_Actualizar_Rol=null;
                         System.gc();
                     }
                 }
@@ -3116,9 +3226,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Rol); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Rol); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Rol=null;
+                jspjPanel_Actualizar_Rol=null;
                 accionActualizarPanelRol();
             }
         }
@@ -3153,14 +3263,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Rol(){
-        if(jPanel_Agregar_Rol==null){
+        if(jspjPanel_Agregar_Rol==null){
+            jspjPanel_Agregar_Rol=new JScrollPane ();
             jPanel_Agregar_Rol = new JPanel_Agregar_Rol();
-            formulario.getPanelTabbedPane().addTab("Rol", null, jPanel_Agregar_Rol, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Rol.setViewportView ( jPanel_Agregar_Rol );
+            formulario.getPanelTabbedPane().addTab("Rol", null, jspjPanel_Agregar_Rol, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Rol);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Rol);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3168,7 +3280,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Rol=null;
+                        jspjPanel_Agregar_Rol=null;
                         System.gc();
                     }
                 }
@@ -3177,9 +3289,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Rol); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Rol); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Rol=null;
+                jspjPanel_Agregar_Rol=null;
                 accionAgregarPanelRol();
             }
         }
@@ -3214,14 +3326,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Rol(){
-        if(jPanel_Eliminar_Rol==null){
+        if(jspjPanel_Eliminar_Rol==null){
+            jspjPanel_Eliminar_Rol=new JScrollPane ();
             jPanel_Eliminar_Rol = new JPanel_Eliminar_Rol();
-            formulario.getPanelTabbedPane().addTab("Rol", null, jPanel_Eliminar_Rol, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Rol.setViewportView ( jPanel_Eliminar_Rol );
+            formulario.getPanelTabbedPane().addTab("Rol", null, jspjPanel_Eliminar_Rol, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Rol);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Rol);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3229,7 +3343,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Rol=null;
+                        jspjPanel_Eliminar_Rol=null;
                         System.gc();
                     }
                 }
@@ -3238,9 +3352,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Rol); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Rol); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Rol=null;
+                jspjPanel_Eliminar_Rol=null;
                 accionEliminarPanelRol();
             }
         }
@@ -3282,14 +3396,16 @@ public class Controlador{
      */
     
     private void actionActualizar_Sala(){
-        if(jPanel_Actualizar_Sala==null){
+        if(jspjPanel_Actualizar_Sala==null){
+            jspjPanel_Actualizar_Sala=new JScrollPane ();
             jPanel_Actualizar_Sala = new JPanel_Actualizar_Sala();
-            formulario.getPanelTabbedPane().addTab("Sala", null, jPanel_Actualizar_Sala, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Sala.setViewportView ( jPanel_Actualizar_Sala );
+            formulario.getPanelTabbedPane().addTab("Sala", null, jspjPanel_Actualizar_Sala, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Sala);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Sala);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3297,7 +3413,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Sala=null;
+                        jspjPanel_Actualizar_Sala=null;
                         System.gc();
                     }
                 }
@@ -3306,9 +3422,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Sala); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Sala); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Sala=null;
+                jspjPanel_Actualizar_Sala=null;
                 accionActualizarPanelSala();
             }
         }
@@ -3345,14 +3461,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Sala(){
-        if(jPanel_Agregar_Sala==null){
+        if(jspjPanel_Agregar_Sala==null){
+            jspjPanel_Agregar_Sala=new JScrollPane ();
             jPanel_Agregar_Sala = new JPanel_Agregar_Sala();
-            formulario.getPanelTabbedPane().addTab("Sala", null, jPanel_Agregar_Sala, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Sala.setViewportView ( jPanel_Agregar_Sala );
+            formulario.getPanelTabbedPane().addTab("Sala", null, jspjPanel_Agregar_Sala, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Sala);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Sala);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3360,7 +3478,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Sala=null;
+                        jspjPanel_Agregar_Sala=null;
                         System.gc();
                     }
                 }
@@ -3369,9 +3487,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Sala); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Sala); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Sala=null;
+                jspjPanel_Agregar_Sala=null;
                 accionAgregarPanelSala();
             }
         }
@@ -3383,7 +3501,6 @@ public class Controlador{
         sala.setId_sede(Integer.parseInt(jPanel_Agregar_Sala.getId_sede_Choice().getSelectedItem()));
         sala.setCapacidad(Integer.parseInt(jPanel_Agregar_Sala.getCapacidad_JTextField().getText()));
         sala.setNombre(jPanel_Agregar_Sala.getNombre_JTextField().getText());
-        sala.setActual(Integer.parseInt(jPanel_Agregar_Sala.getActual_JTextField().getText()));
         
         SalaDAO sDAO= new SalaDAO();
         
@@ -3408,14 +3525,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Sala(){
-        if(jPanel_Eliminar_Sala==null){
+        if(jspjPanel_Eliminar_Sala==null){
+            jspjPanel_Eliminar_Sala=new JScrollPane();
             jPanel_Eliminar_Sala = new JPanel_Eliminar_Sala();
-            formulario.getPanelTabbedPane().addTab("Sala", null, jPanel_Eliminar_Sala, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Sala.setViewportView ( jPanel_Eliminar_Sala );
+            formulario.getPanelTabbedPane().addTab("Sala", null, jspjPanel_Eliminar_Sala, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Sala);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Sala);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3423,7 +3542,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Sala=null;
+                        jspjPanel_Eliminar_Sala=null;
                         System.gc();
                     }
                 }
@@ -3432,9 +3551,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Sala); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Sala); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Sala=null;
+                jspjPanel_Eliminar_Sala=null;
                 accionEliminarPanelSala();
             }
         }
@@ -3479,14 +3598,16 @@ public class Controlador{
      */
     
     private void actionActualizar_Sede(){
-        if(jPanel_Actualizar_Sede==null){
+        if(jspjPanel_Actualizar_Sede==null){
             jPanel_Actualizar_Sede = new JPanel_Actualizar_Sede();
-            formulario.getPanelTabbedPane().addTab("Sede", null, jPanel_Actualizar_Sede, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Sede=new JScrollPane ();
+            jspjPanel_Actualizar_Sede.setViewportView ( jPanel_Actualizar_Sede );
+            formulario.getPanelTabbedPane().addTab("Sede", null, jspjPanel_Actualizar_Sede, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Sede);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Sede);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3494,7 +3615,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Sede=null;
+                        jspjPanel_Actualizar_Sede=null;
                         System.gc();
                     }
                 }
@@ -3503,9 +3624,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Sede); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Sede); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Sede=null;
+                jspjPanel_Actualizar_Sede=null;
                 accionActualizarPanelSede();
             }
         }
@@ -3543,14 +3664,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Sede(){
-        if(jPanel_Agregar_Sede==null){
+        if(jspjPanel_Agregar_Sede==null){
+            jspjPanel_Agregar_Sede=new JScrollPane ();
             jPanel_Agregar_Sede = new JPanel_Agregar_Sede();
-            formulario.getPanelTabbedPane().addTab("Sede", null, jPanel_Agregar_Sede, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Sede.setViewportView ( jPanel_Agregar_Sede );
+            formulario.getPanelTabbedPane().addTab("Sede", null, jspjPanel_Agregar_Sede, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Sede);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Sede);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3558,7 +3681,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Sede=null;
+                        jspjPanel_Agregar_Sede=null;
                         System.gc();
                     }
                 }
@@ -3567,9 +3690,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Sede); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Sede); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Sede=null;
+                jspjPanel_Agregar_Sede=null;
                 accionAgregarPanelSede();
             }
         }
@@ -3607,14 +3730,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Sede(){
-        if(jPanel_Eliminar_Sede==null){
+        if(jspjPanel_Eliminar_Sede==null){
+            jspjPanel_Eliminar_Sede=new JScrollPane ();
             jPanel_Eliminar_Sede = new JPanel_Eliminar_Sede();
-            formulario.getPanelTabbedPane().addTab("Sede", null, jPanel_Eliminar_Sede, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Sede.setViewportView ( jPanel_Eliminar_Sede );
+            formulario.getPanelTabbedPane().addTab("Sede", null, jspjPanel_Eliminar_Sede, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Sede);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Sede);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3622,7 +3747,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Sede=null;
+                        jspjPanel_Eliminar_Sede=null;
                         System.gc();
                     }
                 }
@@ -3631,9 +3756,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Sede); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Sede); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Sede=null;
+                jspjPanel_Eliminar_Sede=null;
                 accionEliminarPanelSede();
             }
         }
@@ -3678,14 +3803,16 @@ public class Controlador{
      * inicio metodos para las acciones de Tipo_Equipo
      */
     private void actionActualizar_Tipo_Equipo(){
-        if(jPanel_Actualizar_Tipo_Equipo==null){
+        if(jspjPanel_Actualizar_Tipo_Equipo==null){
+            jspjPanel_Actualizar_Tipo_Equipo=new JScrollPane ();
             jPanel_Actualizar_Tipo_Equipo = new JPanel_Actualizar_Tipo_Equipo();
-            formulario.getPanelTabbedPane().addTab("Tipo Equipo", null, jPanel_Actualizar_Tipo_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Actualizar_Tipo_Equipo.setViewportView ( jPanel_Actualizar_Tipo_Equipo );
+            formulario.getPanelTabbedPane().addTab("Tipo Equipo", null, jspjPanel_Actualizar_Tipo_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/actualizar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Tipo_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Tipo_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3693,7 +3820,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Actualizar_Tipo_Equipo=null;
+                        jspjPanel_Actualizar_Tipo_Equipo=null;
                         System.gc();
                     }
                 }
@@ -3702,9 +3829,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Actualizar_Tipo_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Actualizar_Tipo_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Actualizar_Tipo_Equipo=null;
+                jspjPanel_Actualizar_Tipo_Equipo=null;
                 accionActualizarPanelTipoEquipo();
             }
         }
@@ -3738,14 +3865,16 @@ public class Controlador{
     }
     
     private void actionAgregar_Tipo_Equipo(){
-        if(jPanel_Agregar_Tipo_Equipo==null){
+        if(jspjPanel_Agregar_Tipo_Equipo==null){
+            jspjPanel_Agregar_Tipo_Equipo=new JScrollPane ();
             jPanel_Agregar_Tipo_Equipo = new JPanel_Agregar_Tipo_Equipo();
-            formulario.getPanelTabbedPane().addTab("Tipo Equipo", null, jPanel_Agregar_Tipo_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Agregar_Tipo_Equipo.setViewportView ( jPanel_Agregar_Tipo_Equipo );
+            formulario.getPanelTabbedPane().addTab("Tipo Equipo", null, jspjPanel_Agregar_Tipo_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/agregar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Tipo_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Tipo_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3753,7 +3882,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Agregar_Tipo_Equipo=null;
+                        jspjPanel_Agregar_Tipo_Equipo=null;
                         System.gc();
                     }
                 }
@@ -3762,9 +3891,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Agregar_Tipo_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Agregar_Tipo_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Agregar_Tipo_Equipo=null;
+                jspjPanel_Agregar_Tipo_Equipo=null;
                 accionAgregarPanelTipoEquipo();
             }
         }
@@ -3798,14 +3927,16 @@ public class Controlador{
     }
     
     private void actionEliminar_Tipo_Equipo(){
-        if(jPanel_Eliminar_Tipo_Equipo==null){
+        if(jspjPanel_Eliminar_Tipo_Equipo==null){
+            jspjPanel_Eliminar_Tipo_Equipo=new JScrollPane ();
             jPanel_Eliminar_Tipo_Equipo = new JPanel_Eliminar_Tipo_Equipo();
-            formulario.getPanelTabbedPane().addTab("Tipo Equipo", null, jPanel_Eliminar_Tipo_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Eliminar_Tipo_Equipo.setViewportView ( jPanel_Eliminar_Tipo_Equipo );
+            formulario.getPanelTabbedPane().addTab("Tipo Equipo", null, jspjPanel_Eliminar_Tipo_Equipo, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/eliminar.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Tipo_Equipo);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Tipo_Equipo);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3813,7 +3944,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Eliminar_Tipo_Equipo=null;
+                        jspjPanel_Eliminar_Tipo_Equipo=null;
                         System.gc();
                     }
                 }
@@ -3822,9 +3953,9 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Eliminar_Tipo_Equipo); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Eliminar_Tipo_Equipo); 
             }catch (IllegalArgumentException ex){
-                jPanel_Eliminar_Tipo_Equipo=null;
+                jspjPanel_Eliminar_Tipo_Equipo=null;
                 accionEliminarPanelTipoEquipo();
             }
         }
@@ -3860,14 +3991,16 @@ public class Controlador{
      * fin metodos para las acciones de Tipo_Equipo
      */
     private void actionAcerca(){
-        if(jPanel_Acerca_de==null){
+        if(jspjPanel_Acerca_de==null){
+            jspjPanel_Acerca_de=new JScrollPane ();
             jPanel_Acerca_de = new JPanel_Acerca_de();
-            formulario.getPanelTabbedPane().addTab("Acerca de", null, jPanel_Acerca_de, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Acerca_de.setViewportView ( jPanel_Acerca_de );
+            formulario.getPanelTabbedPane().addTab("Acerca de", null, jspjPanel_Acerca_de, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/informacion.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Acerca_de);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Acerca_de);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3875,7 +4008,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Acerca_de=null;
+                        jspjPanel_Acerca_de=null;
                         System.gc();
                     }
                 }
@@ -3883,22 +4016,24 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Acerca_de); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Acerca_de); 
             }catch (IllegalArgumentException ex){
-                jPanel_Acerca_de=null;
+                jspjPanel_Acerca_de=null;
             }
         }
     }
     
     private void actionAyuda(){
-        if(jPanel_Ayuda==null){
+        if(jspjPanel_Ayuda==null){
+            jspjPanel_Ayuda=new JScrollPane ();
             jPanel_Ayuda = new JPanel_Ayuda();
-            formulario.getPanelTabbedPane().addTab("Ayuda", null, jPanel_Ayuda, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Ayuda.setViewportView ( jPanel_Ayuda );
+            formulario.getPanelTabbedPane().addTab("Ayuda", null, jspjPanel_Ayuda, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/ayuda.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Ayuda);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Ayuda);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3906,7 +4041,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Ayuda=null;
+                        jspjPanel_Ayuda=null;
                         System.gc();
                     }
                 }
@@ -3914,22 +4049,24 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Ayuda); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Ayuda); 
             }catch (IllegalArgumentException ex){
-                jPanel_Ayuda=null;
+                jspjPanel_Ayuda=null;
             }
         }
     }
     
     private void actionReporteEspecifico(){
-        if(jPanel_Reporte==null){
+        if(jspjPanel_Reporte==null){
+            jspjPanel_Reporte=new JScrollPane ();
             jPanel_Reporte = new JPanel_Reporte();
-            formulario.getPanelTabbedPane().addTab("Reporte Especifico", null, jPanel_Reporte, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
+            jspjPanel_Reporte.setViewportView ( jPanel_Reporte );
+            formulario.getPanelTabbedPane().addTab("Reporte Especifico", null, jspjPanel_Reporte, "Pestaña donde se muestran los campos de añadir un nuevo registro"); // NOI18N
             ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("../vista/informacion.png"));
             TabButton tabButton=new TabButton();
             Agregar_Pestana pestaña = new Agregar_Pestana(formulario.getPanelTabbedPane(), imageIcon,tabButton);
             formulario.getPanelTabbedPane().setTabComponentAt(formulario.getPanelTabbedPane().getTabCount()-1,pestaña);
-            formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Reporte);
+            formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Reporte);
             tabButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -3937,7 +4074,7 @@ public class Controlador{
                     System.out.println("esto es el indice de agregar "+i);
                     if (i != -1) {
                         formulario.getPanelTabbedPane().remove(i);
-                        jPanel_Reporte=null;
+                        jspjPanel_Reporte=null;
                         System.gc();
                     }
                 }
@@ -3945,10 +4082,42 @@ public class Controlador{
         }
         else{
             try{
-               formulario.getPanelTabbedPane().setSelectedComponent(jPanel_Reporte); 
+               formulario.getPanelTabbedPane().setSelectedComponent(jspjPanel_Reporte); 
             }catch (IllegalArgumentException ex){
-                jPanel_Reporte=null;
+                jspjPanel_Reporte=null;
             }
         }
+        accionPanelReporte();
+    }
+    
+    public void actionReporteAdministra(ActionEvent ae) {       
+        Reporte reporte = new Reporte();
+        
+        
+        String columnas[]={"Nombres","Apellidos","Sala","Fecha de Entrada","Fecha de salida"};
+        jPanel_Reporte.setColumnas(columnas);
+        List<ReporteDTO> reporteDTO;
+        ReporteDAO rDAO= new ReporteDAO();
+        reporteDTO=rDAO.readAll();
+                
+        if(rDAO.update(new ReporteDTO(reporte))){
+             jPanel_Eliminar_Tipo_Equipo.getExito().setForeground(Color.green);
+             jPanel_Eliminar_Tipo_Equipo.getExito().setText("Operación exitosa");
+             jPanel_Eliminar_Tipo_Equipo.limpiar();
+        }
+        else {
+            jPanel_Eliminar_Tipo_Equipo.getExito().setForeground(Color.red);
+            jPanel_Eliminar_Tipo_Equipo.getExito().setText("Operacion sin éxito");
+        }
+    }
+    
+    private void accionPanelReporte() {
+        jPanel_Reporte.getReporteJButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (jPanel_Reporte.getAdministraJRadioButton().isSelected())
+                actionReporteAdministra(e);
+            }
+        });
     }
 }

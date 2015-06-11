@@ -5,7 +5,12 @@
         <group>
             <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/vista/licencia/JPanel_Agregar_Licencia.java</file>
             <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/licencia/LicenciaDAO.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/vista/reporte/JPanel_Reporte.java</file>
             <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/equipo_mantenimiento/Equipo_Mantenimiento.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/controlador/Controlador.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/reporte/ReporteDAO.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/reporte/Reporte.java</file>
+            <file>file:/home/morte/NetBeansProjects/Proyecto-FIS/src/modelo/reporte/ReporteDTO.java</file>
         </group>
     </open-files>
 </project-private>

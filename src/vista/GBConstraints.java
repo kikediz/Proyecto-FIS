@@ -5,7 +5,7 @@
  */
 package vista;
 
-import java.awt.GridBagConstraints;
+import java.awt.*;
 
 
 /**
@@ -13,6 +13,9 @@ import java.awt.GridBagConstraints;
  * @author maximiliano
  */
 public class GBConstraints extends GridBagConstraints{
+    private static final
+    long serialVersionUID =
+         1L;
     /**
      * Metodo para establecer las restricciones u organizaciones de los elementos pertencientes a un componente
      * @param gridx numero de columna en la que se va ubicar

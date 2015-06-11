@@ -19,16 +19,18 @@ import vista.Panels;
  * @author morte
  */
 public class JPanel_Agregar_Sala extends JPanel implements Panels{
+    private static final
+    long serialVersionUID =
+         1L;
 
     private javax.swing.JLabel id_sala_JLabel;
     private javax.swing.JTextField id_sala_JTextField;
+    private javax.swing.JLabel id_sede_JLabel;
     private java.awt.Choice id_sede_Choice;
     private javax.swing.JLabel capacidad_JLabel;
     private javax.swing.JTextField capacidad_JTextField;
     private javax.swing.JLabel nombre_JLabel;
     private javax.swing.JTextField nombre_JTextField;
-    private javax.swing.JLabel actual_JLabel;
-    private javax.swing.JTextField actual_JTextField;
     private javax.swing.JButton agregar_JButton;
     private javax.swing.JButton limpiarJButton;
     private javax.swing.JLabel exito;
@@ -41,13 +43,12 @@ public class JPanel_Agregar_Sala extends JPanel implements Panels{
     private void initComponents(){
         id_sala_JLabel = new javax.swing.JLabel();
         id_sala_JTextField = new javax.swing.JTextField();
+        id_sede_JLabel=new javax.swing.JLabel ();
         id_sede_Choice = new java.awt.Choice();
         capacidad_JLabel = new javax.swing.JLabel();
         capacidad_JTextField = new javax.swing.JTextField();
         nombre_JLabel = new javax.swing.JLabel();
         nombre_JTextField = new javax.swing.JTextField();
-        actual_JLabel = new javax.swing.JLabel();
-        actual_JTextField = new javax.swing.JTextField();
         agregar_JButton = new javax.swing.JButton();
         exito=new  javax.swing.JLabel();
         limpiarJButton=new javax.swing.JButton();
@@ -60,63 +61,57 @@ public class JPanel_Agregar_Sala extends JPanel implements Panels{
         id_sala_JLabel.setFont(new java.awt.Font("Dustismo", 1, 32)); // NOI18N
         id_sala_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_sala_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_sala_JLabel.setText("id_sala_JLabel");
-        add(id_sala_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        id_sala_JLabel.setText("Id sala");
+        add(id_sala_JLabel, new GBConstraints(0, 0, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         id_sala_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         id_sala_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         id_sala_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        id_sala_JTextField.setToolTipText("Introduzca la cedula que desea registrar");
-        add(id_sala_JTextField, new GBConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        id_sala_JTextField.setToolTipText("Introduzca el id de la sala a registrar");
+        add(id_sala_JTextField, new GBConstraints(1, 0, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        
+        id_sede_JLabel.setFont(new java.awt.Font("Dustismo", 1, 32)); // NOI18N
+        id_sede_JLabel.setForeground(new java.awt.Color(0, 0, 0));
+        id_sede_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        id_sede_JLabel.setText("Id sede");
+        add(id_sede_JLabel, new GBConstraints(0, 1, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         id_sede_Choice.setBackground(new java.awt.Color(240, 240, 240));
         id_sede_Choice.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         //id_licencia_Choice.setHorizontalAlignment(java.awt.Choice.CENTER_ALIGNMENT);
         id_sede_Choice.add("Id Sede");
-        add(id_sede_Choice, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(id_sede_Choice, new GBConstraints(1, 1, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         capacidad_JLabel.setFont(new java.awt.Font("Dustismo", 1, 32)); // NOI18N
         capacidad_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         capacidad_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        capacidad_JLabel.setText("id_sala_JLabel");
-        add(capacidad_JLabel, new GBConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        capacidad_JLabel.setText("Capacidad");
+        add(capacidad_JLabel, new GBConstraints(0, 2, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         capacidad_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         capacidad_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         capacidad_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        capacidad_JTextField.setToolTipText("Introduzca la cedula que desea registrar");
-        add(capacidad_JTextField, new GBConstraints(1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        capacidad_JTextField.setToolTipText("Introduzca la capacidad de la sala");
+        add(capacidad_JTextField, new GBConstraints(1, 2, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         nombre_JLabel.setFont(new java.awt.Font("Dustismo", 1, 32)); // NOI18N
         nombre_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         nombre_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombre_JLabel.setText("id_sala_JLabel");
-        add(nombre_JLabel, new GBConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(nombre_JLabel, new GBConstraints(0, 3, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         nombre_JTextField.setBackground(new java.awt.Color(240, 240, 240));
         nombre_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
         nombre_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nombre_JTextField.setToolTipText("Introduzca la cedula que desea registrar");
-        add(nombre_JTextField, new GBConstraints(1, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
-        
-        actual_JLabel.setFont(new java.awt.Font("Dustismo", 1, 32)); // NOI18N
-        actual_JLabel.setForeground(new java.awt.Color(0, 0, 0));
-        actual_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        actual_JLabel.setText("id_sala_JLabel");
-        add(actual_JLabel, new GBConstraints(0, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
-        
-        actual_JTextField.setBackground(new java.awt.Color(240, 240, 240));
-        actual_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
-        actual_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        actual_JTextField.setToolTipText("Introduzca la cedula que desea registrar");
-        add(actual_JTextField, new GBConstraints(1, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
-        
+        add(nombre_JTextField, new GBConstraints(1, 3, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+         
         
         exito.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         exito.setForeground(new java.awt.Color(0, 0, 0));
         exito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exito.setText("");
-        add(exito, new GBConstraints(0, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(exito, new GBConstraints(0, 6, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         agregar_JButton.setBackground(new java.awt.Color(230, 230, 230));
         agregar_JButton.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 32)); // NOI18N
@@ -126,7 +121,7 @@ public class JPanel_Agregar_Sala extends JPanel implements Panels{
         agregar_JButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.lightGray)));
         agregar_JButton.setContentAreaFilled(true);
         agregar_JButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(agregar_JButton, new GBConstraints(0, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(agregar_JButton, new GBConstraints(0, 5, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         limpiarJButton.setBackground(new java.awt.Color(230, 230, 230));
         limpiarJButton.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 32)); // NOI18N
@@ -136,7 +131,7 @@ public class JPanel_Agregar_Sala extends JPanel implements Panels{
         limpiarJButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.lightGray)));
         limpiarJButton.setContentAreaFilled(true);
         limpiarJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(limpiarJButton, new GBConstraints(1, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        add(limpiarJButton, new GBConstraints(1, 5, 1, 1, 0.5, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
     }
 
     
@@ -196,22 +191,6 @@ public class JPanel_Agregar_Sala extends JPanel implements Panels{
         this.nombre_JTextField = nombre_JTextField;
     }
 
-    public JLabel getActual_JLabel() {
-        return actual_JLabel;
-    }
-
-    public void setActual_JLabel(JLabel actual_JLabel) {
-        this.actual_JLabel = actual_JLabel;
-    }
-
-    public JTextField getActual_JTextField() {
-        return actual_JTextField;
-    }
-
-    public void setActual_JTextField(JTextField actual_JTextField) {
-        this.actual_JTextField = actual_JTextField;
-    }
-
     public JButton getActualizar_JButton() {
         return agregar_JButton;
     }
@@ -236,11 +215,11 @@ public class JPanel_Agregar_Sala extends JPanel implements Panels{
         this.exito = exito;
     }
     
+    @Override
     public void limpiar(){
         id_sala_JTextField.setText("");
         id_sede_Choice.select("Id Sede");
         capacidad_JTextField.setText("");
         nombre_JTextField.setText("");
-        actual_JTextField.setText("");
     }
 }

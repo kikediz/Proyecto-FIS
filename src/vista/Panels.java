@@ -5,14 +5,14 @@
  */
 package vista;
 
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-
 /**
  *
  * @author morte
  */
 public interface Panels {
+    /**
+     * Método para limpiar los campos de la interfaz donde se implemente.
+     */
     public void limpiar();
     
     

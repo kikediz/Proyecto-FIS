@@ -22,7 +22,7 @@ public class Conexion {
     private Conexion(){
         try {
             Class.forName("org.postgresql.Driver");
-            cnn=DriverManager.getConnection("jdbc:postgresql://localhost:5432/c_informatica",login.getUser(),login.getPassword());
+            cnn=DriverManager.getConnection("jdbc:postgresql://192.168.1.34:5432/c_informatica",login.getUser(),login.getPassword());
         } catch (ClassNotFoundException ex) {
             System.out.println("error 1"+ex.getMessage());
         } catch (SQLException ex) {
