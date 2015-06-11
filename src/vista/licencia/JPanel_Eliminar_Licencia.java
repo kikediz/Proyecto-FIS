@@ -144,7 +144,7 @@ public class JPanel_Eliminar_Licencia extends JPanel implements Panels{
         eliminar_JButton.setBackground(new java.awt.Color(230, 230, 230));
         eliminar_JButton.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 32)); // NOI18N
         eliminar_JButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/actualizar.png"))); // NOI18N
-        eliminar_JButton.setText("Actualizar");
+        eliminar_JButton.setText("Eliminar");
         eliminar_JButton.setToolTipText("Pulse cuando haya acabado de llenar el formulario");
         eliminar_JButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.lightGray)));
         eliminar_JButton.setContentAreaFilled(true);
