@@ -75,7 +75,7 @@ public class LicenciaDAO implements CRUD<LicenciaDTO> {
             ps.setString(2,licenciaDTO.getProducto());
             ps.setInt(3,licenciaDTO.getCantidad_actual());
             ps.setInt(4,licenciaDTO.getCupo());
-            ps.setDate(5, Date.valueOf((licenciaDTO.getFecha_expiraccion()).toString()));
+            ps.setDate(5, Date.valueOf((licenciaDTO.getFecha_expiraccion())));
             ps.setString(6, licenciaDTO.getId_licencia());
             if(ps.executeUpdate()>0){return true;}
         } catch (SQLException ex) {

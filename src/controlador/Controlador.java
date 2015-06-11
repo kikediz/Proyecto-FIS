@@ -1596,7 +1596,8 @@ public class Controlador{
         }
     }
     
-    public void actionActualizarLicencia(ActionEvent ae) {       
+    public void actionActualizarLicencia(ActionEvent ae) {
+        System.out.println(jPanel_Actualizar_Licencia.getFecha());
         Licencia licencia = new Licencia();
         licencia.setId_licencia(jPanel_Actualizar_Licencia.getId_licencia_JTextField().getText());
         licencia.setProducto(jPanel_Actualizar_Licencia.getProducto_JTextField().getText());
@@ -1604,7 +1605,7 @@ public class Controlador{
         licencia.setCupo(Integer.parseInt(jPanel_Actualizar_Licencia.getCupo_JTextField().getText()));
         //licencia.setFecha_expiraccion((jPanel_Actualizar_Licencia.getFecha_expiracion_JCalendar().getDate()).toString());
         SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
-        licencia.setFecha_expiraccion(jPanel_Actualizar_Licencia.getFecha_expiracion_JCalendar().getDate().toString());
+        licencia.setFecha_expiraccion(jPanel_Actualizar_Licencia.getFecha());
         
         LicenciaDAO lDAO= new LicenciaDAO();
         
@@ -2079,7 +2080,7 @@ public class Controlador{
     public void actionActualizarTipoMantenimiento(ActionEvent ae) {       
         Mantenimiento mantenimiento = new Mantenimiento();
         mantenimiento.setId_mantenimiento(jPanel_Actualizar_Mantenimiento.getId_mantenimiento_JTextField().getText());
-        mantenimiento.setDescripcion(jPanel_Actualizar_Mantenimiento.getDescripcion_mantenimiento_JTextArea().getText());
+        mantenimiento.setDescripcion(jPanel_Actualizar_Mantenimiento.getDescripcion_mantenimiento_JTextField().getText());
         
         MantenimientoDAO mDAO= new MantenimientoDAO();
         
@@ -2101,6 +2102,44 @@ public class Controlador{
             actionActualizarTipoMantenimiento(e);
             }
         });
+        jPanel_Actualizar_Mantenimiento.getId_mantenimiento_JTextField().addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                actionConsultar_tipo_mantenimiento(e);
+            }
+        });
+    }
+    
+    private void actionConsultar_tipo_mantenimiento(KeyEvent ev){
+        if(jPanel_Actualizar_Mantenimiento.getId_mantenimiento_JTextField().getText().length() > 0){
+            
+            jPanel_Actualizar_Mantenimiento.getDescripcion_mantenimiento_JTextField().setText(getDescripcionTipoMantenimiento(jPanel_Actualizar_Mantenimiento.getId_mantenimiento_JTextField().getText()));
+        }
+    }
+    
+    private String getDescripcionTipoMantenimiento(String id_mantenimiento){
+        Mantenimiento mantenimiento = new Mantenimiento();
+        mantenimiento.setId_mantenimiento(id_mantenimiento);
+        
+        MantenimientoDAO mDAO= new MantenimientoDAO();
+        MantenimientoDTO mDTO = mDAO.read_descripcion(new MantenimientoDTO(mantenimiento));
+        if(mantenimientoDTO.getDescripcion()!=null){
+            return mantenimientoDTO.getDescripcion();
+        }
+        else{
+            return null;
+        } 
     }
     
     private void actionAgregarTipoMantenimiento(){

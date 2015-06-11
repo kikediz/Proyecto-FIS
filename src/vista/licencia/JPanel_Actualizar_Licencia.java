@@ -5,22 +5,26 @@
  */
 package vista.licencia;
 
-import java.awt.GridBagConstraints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Calendar;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import org.freixas.jcalendar.JCalendar;
-import vista.GBConstraints;
-import vista.Panels;
+import javax.swing.ScrollPaneLayout;
+import org.freixas.jcalendar.*;
+import vista.*;
 
 /**
  *
  * @author maximiliano
  */
 public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
+    private static final
+    long serialVersionUID =
+         1L;
     private javax.swing.JLabel id_licencia_JLabel;
     private javax.swing.JTextField id_licencia_JTextField;
     private javax.swing.JLabel producto_JLabel;
@@ -44,6 +48,7 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
     }
     
     private void initComponents(){
+        
         id_licencia_JLabel = new javax.swing.JLabel();
         id_licencia_JTextField = new javax.swing.JTextField();
         producto_JLabel = new javax.swing.JLabel();
@@ -65,7 +70,7 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
     private void construir(){
         setAutoscrolls(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setLayout(new java.awt.GridBagLayout());
+        setLayout(new GridBagLayout());
         
         id_licencia_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_licencia_JLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -163,7 +168,11 @@ public class JPanel_Actualizar_Licencia extends JPanel implements Panels{
             }
         });
     }
-
+    public String getFecha(){
+        return fecha_expiracion_JCalendar.getCalendar ().get ( Calendar.YEAR )+"-"+
+               (fecha_expiracion_JCalendar.getCalendar ().get ( Calendar.MONTH )+1)+"-"+
+               fecha_expiracion_JCalendar.getCalendar ().get ( Calendar.DAY_OF_MONTH );
+    }
     public JLabel getId_licencia_JLabel() {
         return id_licencia_JLabel;
     }

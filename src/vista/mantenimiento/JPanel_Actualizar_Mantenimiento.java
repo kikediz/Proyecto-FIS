@@ -23,7 +23,7 @@ public class JPanel_Actualizar_Mantenimiento extends JPanel implements Panels{
     private javax.swing.JLabel id_mantenimiento_JLabel;
     private javax.swing.JTextField id_mantenimiento_JTextField;
     private javax.swing.JLabel descripcion_mantenimiento_JLabel;
-    private javax.swing.JTextArea descripcion_mantenimiento_JTextArea;
+    private javax.swing.JTextField descripcion_mantenimiento_JTextField;
     private javax.swing.JButton actualizar_JButton;
     private javax.swing.JButton limpiarJButton;
     private javax.swing.JLabel exito;
@@ -37,7 +37,7 @@ public class JPanel_Actualizar_Mantenimiento extends JPanel implements Panels{
         id_mantenimiento_JLabel = new javax.swing.JLabel();
         id_mantenimiento_JTextField = new javax.swing.JTextField();
         descripcion_mantenimiento_JLabel = new javax.swing.JLabel();
-        descripcion_mantenimiento_JTextArea = new javax.swing.JTextArea();
+        descripcion_mantenimiento_JTextField = new javax.swing.JTextField();
         actualizar_JButton = new javax.swing.JButton();
         exito=new  javax.swing.JLabel();
         limpiarJButton=new javax.swing.JButton();
@@ -49,7 +49,7 @@ public class JPanel_Actualizar_Mantenimiento extends JPanel implements Panels{
         id_mantenimiento_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         id_mantenimiento_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         id_mantenimiento_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        id_mantenimiento_JLabel.setText("Cedula");
+        id_mantenimiento_JLabel.setText("Id Mantenimiento");
         add(id_mantenimiento_JLabel, new GBConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
         id_mantenimiento_JTextField.setBackground(new java.awt.Color(240, 240, 240));
@@ -61,14 +61,14 @@ public class JPanel_Actualizar_Mantenimiento extends JPanel implements Panels{
         descripcion_mantenimiento_JLabel.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         descripcion_mantenimiento_JLabel.setForeground(new java.awt.Color(0, 0, 0));
         descripcion_mantenimiento_JLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        descripcion_mantenimiento_JLabel.setText("Nombre");
+        descripcion_mantenimiento_JLabel.setText("Descripción");
         add(descripcion_mantenimiento_JLabel, new GBConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new java.awt.Insets(32, 27, 36, 26), 0, 0));
         
-        descripcion_mantenimiento_JTextArea.setBackground(new java.awt.Color(240, 240, 240));
-        descripcion_mantenimiento_JTextArea.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
-        //descripcion_mantenimiento_JTextArea.setHorizontalAlignment(javax.swing.JTextArea.CENTER);
-        descripcion_mantenimiento_JTextArea.setToolTipText("Introduzca el nombre de la persona que desea actualizar");
-        add(descripcion_mantenimiento_JTextArea, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(32, 27, 36, 26), 0, 0));
+        descripcion_mantenimiento_JTextField.setBackground(new java.awt.Color(240, 240, 240));
+        descripcion_mantenimiento_JTextField.setFont(new java.awt.Font("Bitstream Vera Sans", 0, 30)); // NOI18N
+        descripcion_mantenimiento_JTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        descripcion_mantenimiento_JTextField.setToolTipText("Introduzca el nombre de la persona que desea actualizar");
+        add(descripcion_mantenimiento_JTextField, new GBConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new java.awt.Insets(5,5, 5, 5), 0, 0));
         
         exito.setFont(new java.awt.Font("Dustismo", 1, 26)); // NOI18N
         exito.setForeground(new java.awt.Color(0, 0, 0));
@@ -122,12 +122,12 @@ public class JPanel_Actualizar_Mantenimiento extends JPanel implements Panels{
         this.descripcion_mantenimiento_JLabel = descripcion_mantenimiento_JLabel;
     }
 
-    public JTextArea getDescripcion_mantenimiento_JTextArea() {
-        return descripcion_mantenimiento_JTextArea;
+    public JTextField getDescripcion_mantenimiento_JTextField() {
+        return descripcion_mantenimiento_JTextField;
     }
 
-    public void setDescripcion_mantenimiento_JTextArea(JTextArea descripcion_mantenimiento_JTextArea) {
-        this.descripcion_mantenimiento_JTextArea = descripcion_mantenimiento_JTextArea;
+    public void setDescripcion_mantenimiento_JTextField(JTextField descripcion_mantenimiento_JTextField) {
+        this.descripcion_mantenimiento_JTextField = descripcion_mantenimiento_JTextField;
     }
 
     public JButton getActualizar_JButton() {
@@ -156,6 +156,6 @@ public class JPanel_Actualizar_Mantenimiento extends JPanel implements Panels{
     
     public void limpiar(){
         id_mantenimiento_JTextField.setText("");
-        descripcion_mantenimiento_JTextArea.setText("");
+        descripcion_mantenimiento_JTextField.setText("");
     }
 }

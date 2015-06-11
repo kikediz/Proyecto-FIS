@@ -32,6 +32,7 @@ public class MantenimientoDAO implements CRUD<MantenimientoDTO> {
     private static final String SQL_UPDATE="update PERSONA set correo=?,nombre=?  where cedula=?";
     private static final String SQL_READ="select * from PERSONA where cedula=?";
     private static final String SQL_READALL="select * from PERSONA";   
+    private static final String SQL_DESCRIPCION="select descripcion from mantenimiento where id_mantenimiento=?";
        
    private static final Conexion con= Conexion.entregarConexion();
     
@@ -117,10 +118,23 @@ public class MantenimientoDAO implements CRUD<MantenimientoDTO> {
         } catch (SQLException ex) {
             Logger.getLogger(MantenimientoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{con.cerraConexion();}
-        return personas;  
-        
-        
+        return personas;
     }
 
-      
+    public MantenimientoDTO read_descripcion(MantenimientoDTO mantenimientoDTO) {
+         MantenimientoDTO l=null;
+        try {
+            ps=con.getCnn().prepareStatement(SQL_DESCRIPCION);
+            ResultSet rs;
+            ps.setString(1,mantenimientoDTO.getId_mantenimiento());
+            rs=ps.executeQuery();
+            while(rs.next()){
+                l=new MantenimientoDTO(new Mantenimiento("", rs.getString("descripcion")));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MantenimientoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{con.cerraConexion();}
+        return l;
+    }  
 }

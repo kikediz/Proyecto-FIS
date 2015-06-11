@@ -5,18 +5,12 @@
  */
 package vista.licencia_equipo;
 
-import java.awt.Choice;
-import java.awt.GridBagConstraints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Date;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import org.freixas.jcalendar.JCalendar;
-import vista.GBConstraints;
-import vista.Panels;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+import org.freixas.jcalendar.*;
+import vista.*;
 
 /**
  *
@@ -189,6 +183,7 @@ public class JPanel_Actualizar_Licencia_Equipo extends JPanel implements Panels{
     }
     
     
+    @Override
     public void limpiar(){
         id_licencia_JTextField.setText("");
         id_equipo_JTextField.setText("");
